@@ -1,582 +1,1320 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="./erik.css">
-    <title>Biometrics software FAQ</title>
-  </head>
-  <body>
-    <h1>Emacs</h1>
-    <h2>ASCII control characters</h2>
-    The most important control characters are horizontal tab, line
-    feed, and carriage return. Tab is for moving the printing position
-    some spaces to the right. Depending on the operating system, line
-    feed, carriage return or the combination of them indicate the end
-    of a line.
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Notepad ++</th>
-        <th>ASCII</th>
-	<th>ASCII Hex</th>
-        <th>String Notation</th>
-        <th>Caret Notation</th>
-        <th>Input method</th>
-      </tr>
-      <tr>
-        <td>Horizontal Tab</td>
-        <td>&rarr;</td>
-        <td>9</td>
-	<td>09</td>
-        <td><code>\t</code></td>
-        <td><code>^I</code></td>
-        <td>C-q C-i</td>
-      </tr>
-      <tr>
-        <td>Line Feed</td>
-        <td>LF</td>
-        <td>10</td>
-	<td>0A</td>
-        <td><code>\n</code></td>
-        <td><code>^J</code></td>
-        <td>C-q C-j</td>
-      </tr>
-      <tr>
-        <td>Carriage Return</td>
-        <td>CR</td>
-        <td>13</td>
-	<td>0D</td>
-        <td><code>\r</code></td>
-        <td><code>^M</code></td>
-        <td>C-q C-m</td>
-      </tr>
-    </table>
-    <p>Example: SAS uses hexadecimal notation, so the line feed character (LF) in SAS
-    is <code>'0A'x</code>, and CRLF is <code>'0D0A'x</code>.</p>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-02-04 Tue 15:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Biometrics Software FAQ</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Erik van Werkhoven" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
-    <p> Example: the SAS function call:
-      <code>compress(source_text, '0D'x);</code> removes Carriage Returns from a character variable.</p>
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="src/erik.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
 
-    <p>Following is the newline convention in different operating systems.</p>
-    <table>
-      <tr>
-        <th>Operating System</th>
-        <th>Newline Convention</th>
-        <th>Notes</th></tr>
-      <tr>
-        <td>Unix, Linux, Mac OS X</td>
-        <td><code>\n</code></td>
-        <td>Mac OS X prefers <code>\n</code>, but accepts the Mac OS
-          Classic's <code>\r</code> too.</td>
-      </tr>
-      <tr>
-        <td>Windows</td>
-        <td><code>\r\n</code></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Mac OS Classic</td>
-        <td><code>\r</code></td>
-        <td></td>
-      </tr>
-    </table>
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
 
-
-    <h1>Administration of drugs</h1>
-    <table>
-      <tr>
-        <th>Abbrev.</th>
-        <th>Meaning</th>
-        <th>Latin (or New Latin) origin</th>
-      </tr>
-      <tr>
-        <td>a.c.</td>
-        <td>Before meals</td>
-        <td>ante cibum</td>
-      </tr>
-      <tr>
-        <td>q.o.d</td>
-        <td>Every other day</td>
-        <td>quaque otra die</td>
-      </tr>
-      <tr>
-        <td>q.i.d</td>
-        <td>Four times a day</td>
-        <td>quater in die</td>
-      </tr>
-      <tr>
-        <td>a.m.</td>
-        <td>After noon</td>
-        <td>post meridiem</td>
-      </tr>
-      <tr>
-        <td>p.m.</td>
-        <td>Morning</td>
-        <td>ante meridiem</td>
-      </tr>
-      <tr>
-        <td>b.i.d. (or bid)</td>
-        <td>Twice a day/daily</td>
-        <td>bis in die</td>
-      </tr>
-      <tr>
-        <td>gtt.</td>
-        <td>Drop(s)</td>
-        <td>gutta(e)</td>
-      </tr>
-      <tr>
-        <td>h.</td>
-        <td>Hour</td>
-        <td>hora</td>
-      </tr>
-      <tr>
-        <td>h.s.</td>
-        <td>At bedtime</td>
-        <td>hora somni</td>
-      </tr>
-      <tr>
-        <td>o.d.</td>
-        <td>Right eye</td>
-        <td>oculus dexter</td>
-      </tr>
-      <tr>
-        <td>o.s.</td>
-        <td>Left eye</td>
-        <td>oculus sinister</td>
-      </tr>
-      <tr>
-        <td>o.u.</td>
-        <td>Both eyes</td>
-        <td>oculus uterque</td>
-      </tr>
-      <tr>
-        <td>p.c.</td>
-        <td>After meal</td>
-        <td>post cibum</td>
-      </tr>
-      <tr>
-        <td>p.m.</td>
-        <td>Afternoon</td>
-        <td>post meridiem</td>
-      </tr>
-      <tr>
-        <td>p.o. (or po)</td>
-        <td>Orally / by mouth</td>
-        <td>per os</td>
-      </tr>
-      <tr>
-        <td>p.r. (or pr)</td>
-        <td>Rectally</td>
-        <td>per rectum</td>
-      </tr>
-      <tr>
-        <td>p.r.n.</td>
-        <td>As needed</td>
-        <td>pro re nata</td>
-      </tr>
-      <tr>
-        <td>q.</td>
-        <td>every </td>
-        <td>quaque</td>
-      </tr>
-      <tr>
-        <td>q.2.h.</td>
-        <td>Every two hours</td>
-        <td>quaque secunda hora</td>
-      </tr>
-      <tr>
-        <td>q.4.h.</td>
-        <td>Every four hours</td>
-        <td>quaque quarta hora</td>
-      </tr>
-      <tr>
-        <td>q.6.h.</td>
-        <td>Every six hours</td>
-        <td>quaque sexta hora</td>
-      </tr>
-      <tr>
-        <td>q.8.h.</td>
-        <td>Every eight hours</td>
-        <td>quaque octava hora</td>
-      </tr>
-      <tr>
-        <td>q.d. (or qd)</td>
-        <td>Every day/daily</td>
-        <td>quaque die</td>
-      </tr>
-      <tr>
-        <td>q.i.d</td>
-        <td>Four times a day</td>
-        <td>quater in die</td>
-      </tr>
-      <tr>
-        <td>q.h.</td>
-        <td>Every hour, hourly</td>
-        <td>quaque hora</td>
-      </tr>
-      <tr>
-        <td>q.s.</td>
-        <td>A sufficient quantity</td>
-        <td>quantum sufficiat</td>
-      </tr>
-      <tr>
-        <td>Sig. (or S.)</td>
-        <td>Directions to patient</td>
-        <td>signa</td>
-      </tr>
-      <tr>
-        <td>Stat.</td>
-        <td>Immediately, with no delay</td>
-        <td>statim</td>
-      </tr>
-      <tr>
-        <td>t.i.d. (or tid)</td>
-        <td>Three times a day</td>
-        <td>ter in die</td>
-      </tr>
-      <tr>
-        <td>s.i.d. (or sid)</td>
-        <td>Once per day</td>
-        <td>semel in die</td>
-      </tr>
-      <tr>
-        <td>u.d. (or Ut dict.)</td>
-        <td>As directed</td>
-        <td>ut dictum</td>
-      </tr>
-
-      <tr>
-        <td>IM</td>
-        <td>intramuscular</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>IP</td>
-        <td>Intraperitoneal</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>IV</td>
-        <td>Intravenous</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>IN</td>
-        <td>Intranasal</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
 
 
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Biometrics Software FAQ</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf97a6ef">1. Abbreviations used for administration of drugs</a></li>
+<li><a href="#orga3424a8">2. ASCII control characters</a></li>
+<li><a href="#org85e5fea">3. SAS</a>
+<ul>
+<li><a href="#orga4c39ce">3.1. Converting a variable from numeric to character</a></li>
+<li><a href="#orgbf90c7c">3.2. Converting a variable from numeric to character respecting the format</a></li>
+<li><a href="#orga44331e">3.3. Converting a variable from character to numeric</a></li>
+<li><a href="#orgd36e024">3.4. Extracting the last character from a string</a></li>
+<li><a href="#org1b500cb">3.5. Removing blanks from a string</a>
+<ul>
+<li><a href="#org6a7b62b">3.5.1. Leading and trailing blanks</a></li>
+<li><a href="#org542c508">3.5.2. Removing line breaks from a string</a></li>
+</ul>
+</li>
+<li><a href="#orgca1595d">3.6. Location of the SAS temporary work directory</a></li>
+<li><a href="#orgd0b4c0b">3.7. List of SAS member types</a></li>
+<li><a href="#org4c31fba">3.8. Dictionary</a></li>
+<li><a href="#org906c7f6">3.9. Reading data from CSV files</a>
+<ul>
+<li><a href="#org1c5b7a4">3.9.1. Line feeds within strings</a></li>
+<li><a href="#org5855d03">3.9.2. Reading data from difficult txt files</a></li>
+<li><a href="#org12cbeca">3.9.3. Writing a dataset to a plain text file</a></li>
+<li><a href="#orga791774">3.9.4. Writing data to results viewer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc98d4ce">4. Regular Expressions</a></li>
+<li><a href="#orgd44cf8d">5. MS Word</a>
+<ul>
+<li><a href="#org0857117">5.1. Minus sign</a></li>
+</ul>
+</li>
+<li><a href="#org673a5e9">6. Configuring Notepad++ to run PDFLaTeX</a></li>
+</ul>
+</div>
+</div>
 
-   <h1>SAS</h1>
-    <h2>Converting a variable from numeric to character</h2>
-    <p>Following is an example of how to create a character variable
-      from a numeric variable.
-      The example uses the <code>PUT</code>
-      function. The <code>PUT</code> function writes values with a
-      specified format. It takes two arguments: the name of the
-      variable, and a SAS format or user-defined format for writing
-      the data.
-      By default, if the first argument (the source) is numeric, the
-      resulting string will be right aligned, and if the it is
-      character, the result will be left aligned.
-      To override the default alignment, you can add an alignment
-      specification to a format: <code>-L</code> left aligns the
-      value, <code>-C</code> centers the value, and <code>-R</code>
-      right aligns the value.
-    <pre class="example"> <code>data presidents;
-	input id name $11.  telephone $12.;
-    datalines;
+<div id="outline-container-orgf97a6ef" class="outline-2">
+<h2 id="orgf97a6ef"><span class="section-number-2">1</span> Abbreviations used for administration of drugs</h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Abbrev.</th>
+<th scope="col" class="org-left">Meaning</th>
+<th scope="col" class="org-left">Latin (or New Latin) origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a.c.</td>
+<td class="org-left">Before meals</td>
+<td class="org-left">ante cibum</td>
+</tr>
+
+<tr>
+<td class="org-left">q.o.d</td>
+<td class="org-left">Every other day</td>
+<td class="org-left">quaque otra die</td>
+</tr>
+
+<tr>
+<td class="org-left">q.i.d</td>
+<td class="org-left">Four times a day</td>
+<td class="org-left">quater in die</td>
+</tr>
+
+<tr>
+<td class="org-left">a.m.</td>
+<td class="org-left">After noon</td>
+<td class="org-left">post meridiem</td>
+</tr>
+
+<tr>
+<td class="org-left">p.m.</td>
+<td class="org-left">Morning</td>
+<td class="org-left">ante meridiem</td>
+</tr>
+
+<tr>
+<td class="org-left">b.i.d. (or bid)</td>
+<td class="org-left">Twice a day/daily</td>
+<td class="org-left">bis in die</td>
+</tr>
+
+<tr>
+<td class="org-left">gtt.</td>
+<td class="org-left">Drop(s)</td>
+<td class="org-left">gutta(e)</td>
+</tr>
+
+<tr>
+<td class="org-left">h.</td>
+<td class="org-left">Hour</td>
+<td class="org-left">hora</td>
+</tr>
+
+<tr>
+<td class="org-left">h.s.</td>
+<td class="org-left">At bedtime</td>
+<td class="org-left">hora somni</td>
+</tr>
+
+<tr>
+<td class="org-left">o.d.</td>
+<td class="org-left">Right eye</td>
+<td class="org-left">oculus dexter</td>
+</tr>
+
+<tr>
+<td class="org-left">o.s.</td>
+<td class="org-left">Left eye</td>
+<td class="org-left">oculus sinister</td>
+</tr>
+
+<tr>
+<td class="org-left">o.u.</td>
+<td class="org-left">Both eyes</td>
+<td class="org-left">oculus uterque</td>
+</tr>
+
+<tr>
+<td class="org-left">p.c.</td>
+<td class="org-left">After meal</td>
+<td class="org-left">post cibum</td>
+</tr>
+
+<tr>
+<td class="org-left">p.m.</td>
+<td class="org-left">Afternoon</td>
+<td class="org-left">post meridiem</td>
+</tr>
+
+<tr>
+<td class="org-left">p.o. (or po)</td>
+<td class="org-left">Orally / by mouth</td>
+<td class="org-left">per os</td>
+</tr>
+
+<tr>
+<td class="org-left">p.r. (or pr)</td>
+<td class="org-left">Rectally</td>
+<td class="org-left">per rectum</td>
+</tr>
+
+<tr>
+<td class="org-left">p.r.n.</td>
+<td class="org-left">As needed</td>
+<td class="org-left">pro re nata</td>
+</tr>
+
+<tr>
+<td class="org-left">q.</td>
+<td class="org-left">every</td>
+<td class="org-left">quaque</td>
+</tr>
+
+<tr>
+<td class="org-left">q.2.h.</td>
+<td class="org-left">Every two hours</td>
+<td class="org-left">quaque secunda hora</td>
+</tr>
+
+<tr>
+<td class="org-left">q.4.h.</td>
+<td class="org-left">Every four hours</td>
+<td class="org-left">quaque quarta hora</td>
+</tr>
+
+<tr>
+<td class="org-left">q.6.h.</td>
+<td class="org-left">Every six hours</td>
+<td class="org-left">quaque sexta hora</td>
+</tr>
+
+<tr>
+<td class="org-left">q.8.h.</td>
+<td class="org-left">Every eight hours</td>
+<td class="org-left">quaque octava hora</td>
+</tr>
+
+<tr>
+<td class="org-left">q.d. (or qd)</td>
+<td class="org-left">Every day/daily</td>
+<td class="org-left">quaque die</td>
+</tr>
+
+<tr>
+<td class="org-left">q.i.d</td>
+<td class="org-left">Four times a day</td>
+<td class="org-left">quater in die</td>
+</tr>
+
+<tr>
+<td class="org-left">q.h.</td>
+<td class="org-left">Every hour, hourly</td>
+<td class="org-left">quaque hora</td>
+</tr>
+
+<tr>
+<td class="org-left">q.s.</td>
+<td class="org-left">A sufficient quantity</td>
+<td class="org-left">quantum sufficiat</td>
+</tr>
+
+<tr>
+<td class="org-left">Sig. (or S.)</td>
+<td class="org-left">Directions to patient</td>
+<td class="org-left">signa</td>
+</tr>
+
+<tr>
+<td class="org-left">Stat.</td>
+<td class="org-left">Immediately, with no delay</td>
+<td class="org-left">statim</td>
+</tr>
+
+<tr>
+<td class="org-left">t.i.d. (or tid)</td>
+<td class="org-left">Three times a day</td>
+<td class="org-left">ter in die</td>
+</tr>
+
+<tr>
+<td class="org-left">s.i.d. (or sid)</td>
+<td class="org-left">Once per day</td>
+<td class="org-left">semel in die</td>
+</tr>
+
+<tr>
+<td class="org-left">u.d. (or Ut dict.)</td>
+<td class="org-left">As directed</td>
+<td class="org-left">ut dictum</td>
+</tr>
+
+<tr>
+<td class="org-left">IM</td>
+<td class="org-left">intramuscular</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">IP</td>
+<td class="org-left">Intraperitoneal</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">IV</td>
+<td class="org-left">Intravenous</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">IN</td>
+<td class="org-left">Intranasal</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga3424a8" class="outline-2">
+<h2 id="orga3424a8"><span class="section-number-2">2</span> ASCII control characters</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a id="org41b2091"></a>The most important control characters are horizontal tab, line
+feed, and carriage return. Tab is for moving the printing position
+some spaces to the right. Depending on the operating system, line
+feed, carriage return or the combination of them indicate the end
+of a line.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Notepad ++</th>
+<th scope="col" class="org-right">ASCII</th>
+<th scope="col" class="org-right">ASCII Hex</th>
+<th scope="col" class="org-left">String Notation</th>
+<th scope="col" class="org-left">Caret Notation</th>
+<th scope="col" class="org-left">Input method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Horizontal Tab</td>
+<td class="org-left">&rarr;</td>
+<td class="org-right">9</td>
+<td class="org-right">09</td>
+<td class="org-left"><code>\t</code></td>
+<td class="org-left"><code>^I</code></td>
+<td class="org-left"><code>C-q C-i</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Line Feed</td>
+<td class="org-left">LF</td>
+<td class="org-right">10</td>
+<td class="org-right">0A</td>
+<td class="org-left"><code>\n</code></td>
+<td class="org-left"><code>^J</code></td>
+<td class="org-left"><code>C-q C-j</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Carriage Return</td>
+<td class="org-left">CR</td>
+<td class="org-right">13</td>
+<td class="org-right">0D</td>
+<td class="org-left"><code>\r</code></td>
+<td class="org-left"><code>^M</code></td>
+<td class="org-left"><code>C-q C-m</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Example: SAS uses hexadecimal notation, so the line feed character (LF) in SAS is <code>'0A'x,</code> and <code>CRLF</code> is <code>'0D0A'x</code>.
+</p>
+
+<p>
+Example: the SAS function call: <code>compress(source_text, '0D'x);</code> removes Carriage Returns from a character variable.
+</p>
+
+<p>
+Following is the newline convention in different operating systems.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operating System</th>
+<th scope="col" class="org-left">Newline Convention</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Unix, Linux, Mac OS X</td>
+<td class="org-left"><code>\n</code></td>
+<td class="org-left">Mac OS X prefers <code>\n</code>, but accepts the Mac OS Classic's <code>\r</code> too.</td>
+</tr>
+
+<tr>
+<td class="org-left">Windows</td>
+<td class="org-left"><code>\r\n</code></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Mac OS Classic</td>
+<td class="org-left"><code>\r</code></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org85e5fea" class="outline-2">
+<h2 id="org85e5fea"><span class="section-number-2">3</span> SAS</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga4c39ce" class="outline-3">
+<h3 id="orga4c39ce"><span class="section-number-3">3.1</span> Converting a variable from numeric to character</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Following is an example of how to create a character variable from
+a numeric variable. The example uses the PUT function. The PUT
+function writes values with a specified format. It takes two
+arguments: the name of the variable, and a SAS format or
+user-defined format for writing the data. By default, if the first
+argument (the source) is numeric, the resulting string will be
+right aligned, and if the it is character, the result will be left
+aligned. To override the default alignment, you can add an
+alignment specification to a format: -L left aligns the value, -C
+centers the value, and -R right aligns the value.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">data</span> presidents;
+    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name $11. telephone $12.;
+    <span style="color: #008b8b;">datalines;</span>
     1  Washington 0
     19 Hayes      1
     44 Obama      202-456-1111
     ;
-    run;
-data character;
-    set presidents;
-    phone_char = PUT(phone_number, 12.);
-    run; </code></pre>
-    </p>
+    <span style="color: #008b8b;">run;</span>
+<span style="color: #008b8b;">data</span> character;
+    <span style="color: #a020f0;">set</span> presidents;
+    phone_char = <span style="color: #0000ff;">PUT(</span>phone_number, 12.);
+    <span style="color: #008b8b;">run;</span> 
+</pre>
+</div>
+</div>
+</div>
 
-    <h2>Converting a variable from numeric to character respecting the format </h2>
-    <p>Following is an example of how to create a character variable
-      from a numeric variable which has a format. The aim is to
-      retrieve the formatted value as a character string.  The example
-      uses the <code>VVALUE</code> function. The <code>VALUE</code>
-      function writes the formatted value of a variable as a character
-      string.
-    <pre class="example"><code>proc format library=work;
-    value president_
-        0  = 'Washington'
-        16 = 'Lincoln'
-        44 = 'Obama';
-quit;
-data presidents_numeric;
-    input id name;
-    datalines;
+
+<div id="outline-container-orgbf90c7c" class="outline-3">
+<h3 id="orgbf90c7c"><span class="section-number-3">3.2</span> Converting a variable from numeric to character respecting the format</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Following is an example of how to create a character variable from a
+numeric variable which has a format. The aim is to retrieve the
+formatted value as a character string. The example uses the VVALUE
+function. The VALUE function writes the formatted value of a variable
+as a character string.
+</p>
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">proc format</span> library=work;
+    <span style="color: #a020f0;">value</span> president_
+        0  = <span style="color: #8b2252;">'Washington'</span>
+        16 = <span style="color: #8b2252;">'Lincoln'</span>
+        44 = <span style="color: #8b2252;">'Obama'</span>;
+<span style="color: #008b8b;">quit;</span>
+<span style="color: #008b8b;">data</span> presidents_numeric;
+    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name;
+    <span style="color: #008b8b;">datalines;</span>
     1 0
     2 16
     3 44
     ;
-run;
-data presidents_formatted;
-    set presidents_numeric;
-    attrib name format = president_.;
-run;
-data presidents_character;
-    set presidents_formatted;
+<span style="color: #008b8b;">run;</span>
+<span style="color: #008b8b;">data</span> presidents_formatted;
+    <span style="color: #a020f0;">set</span> presidents_numeric;
+    <span style="color: #a020f0;">attrib</span> name <span style="color: #a020f0;">format</span> = president_.;
+<span style="color: #008b8b;">run;</span>
+<span style="color: #008b8b;">data</span> presidents_character;
+    <span style="color: #a020f0;">set</span> presidents_formatted;
     president_char = VVALUE(name);
-run; </code></pre>
-    </p>
+<span style="color: #008b8b;">run;</span> 
+</pre>
+</div>
+</div>
+</div>
 
-    <h2>Converting a variable from character to numeric</h2>
-    <p>Following is an example of how to create a numeric variable
-      from a character variable.
-      The example uses the <code>INPUT</code> function.
-      The <code>INPUT</code> function can convert values by using a
-      specified informat.
-      The informat determines whether the result is numeric or
-      character.
-      It takes two arguments: the name of the
-      variable, and a SAS informat for reading the data.
-      The difference with the <code>PUT</code> function is that
-      <code>INPUT</code> uses an informat instead of a format.
-      <pre class="example"> <code>data presidents;
-    input id name $ phone_number $12.;
-    datalines;
+<div id="outline-container-orga44331e" class="outline-3">
+<h3 id="orga44331e"><span class="section-number-3">3.3</span> Converting a variable from character to numeric</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Following is an example of how to create a numeric variable from a
+character variable. The example uses the INPUT function. The INPUT
+function can convert values by using a specified informat. The
+informat determines whether the result is numeric or character. It
+takes two arguments: the name of the variable, and a SAS informat for
+reading the data. The difference with the PUT function is that INPUT
+uses an informat instead of a format.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sas"> <span style="color: #008b8b;">data</span> presidents;
+    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name $ phone_number $12.;
+    <span style="color: #008b8b;">datalines;</span>
     1 Washington 0
     19 Hayes 1
     44 Obama 2024561111
     ;
-run;
-data numeric;
-    set presidents;
-    phone_num = INPUT(phone_number, 12.);
-run; </code></pre>
-    </p>
+<span style="color: #008b8b;">run;</span>
+<span style="color: #008b8b;">data</span> numeric;
+    <span style="color: #a020f0;">set</span> presidents;
+    phone_num = <span style="color: #0000ff;">INPUT(</span>phone_number, 12.);
+<span style="color: #008b8b;">run;</span> 
+</pre>
+</div>
+</div>
+</div>
 
 
 
-    <h2>Extracting the last character from a string</h2>
-    <p>The following example shows how to extract the last
-      character from a character string variable.
-      The example uses the <code>REVERSE</code> and the <code>SUBSTR</code> functions.
-      The <code>REVERSE</code> function returns a character string backward. The last
-      character in the argument becomes the first character in the
-      result, the next-to-last character in the argument becomes the
-      second character in the result, and so on.
-      The <code>SUBSTR</code> function returns a substring of the first
-      argument. The second argument is the position of the first
-      character of the substring to extract. The optional third
-      argument specifies the length of the substring. If no length is
-      specified SAS will read on until the end of the string.
 
-      <pre class="example"> <code>data presidents;
-    input id name $ telephone $12.;
-    datalines;
+<div id="outline-container-orgd36e024" class="outline-3">
+<h3 id="orgd36e024"><span class="section-number-3">3.4</span> Extracting the last character from a string</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+The following example shows how to extract the last character from a character string variable. The example uses the REVERSE and the SUBSTR functions. The REVERSE function returns a character string backward. The last character in the argument becomes the first character in the result, the next-to-last character in the argument becomes the second character in the result, and so on. The SUBSTR function returns a substring of the first argument. The second argument is the position of the first character of the substring to extract. The optional third argument specifies the length of the substring. If no length is specified SAS will read on until the end of the string.
+</p>
+<div class="org-src-container">
+<pre class="src src-sas"> <span style="color: #008b8b;">data</span> presidents;
+    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name $ telephone $12.;
+    <span style="color: #008b8b;">datalines;</span>
     1  Washington 0
     19 Hayes 1
     44 Obama 202-456-1111
     ;
-run;
+<span style="color: #008b8b;">run;</span>
 
-data annotate;
-    set presidents;
-    char_rev = REVERSE(telephone);
-    char_last = SUBSTR(COMPRESS(char_rev), 1, 1);
-    IF char_last=1 THEN note = 'President with phone number ending in 1';
-    run; </code> </pre>
-    </p>
+<span style="color: #008b8b;">data</span> annotate;
+    <span style="color: #a020f0;">set</span> presidents;
+    char_rev = <span style="color: #0000ff;">REVERSE(</span>telephone);
+    char_last = <span style="color: #0000ff;">SUBSTR(COMPRESS(</span>char_rev), 1, 1);
+    <span style="color: #a020f0;">IF</span> char_last=1 <span style="color: #a020f0;">THEN</span> note = <span style="color: #8b2252;">'President with phone number ending in 1'</span>;
+    <span style="color: #008b8b;">run;</span>  
+</pre>
+</div>
+</div>
+</div>
 
-    <h2>Removing blanks from a string</h2>
-    <h3>Leading and trailing blanks</h3>
-    <p>The SAS function <code>STRIP</code> returns a character string
-      with all leading and trailing blanks removed. To demonstrate
-      this functionality, the number of spaces at the beginning of
-      the lines after the <code>datalines</code> statement was chosen
-      deliberately; make sure to keep them intact when copy/pasting
-      the code. </p>
-    <pre class="example"><code>data lengthn;
-    input string $char8.;
-    original = '*' || string || '*';
-    stripped = '*' || strip(string) || '*';
-    datalines;
+
+<div id="outline-container-org1b500cb" class="outline-3">
+<h3 id="org1b500cb"><span class="section-number-3">3.5</span> Removing blanks from a string</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org6a7b62b" class="outline-4">
+<h4 id="org6a7b62b"><span class="section-number-4">3.5.1</span> Leading and trailing blanks</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+The SAS function STRIP returns a character string with all leading and trailing blanks removed. To demonstrate this functionality, the number of spaces at the beginning of the lines after the datalines statement was chosen deliberately; make sure to keep them intact when copy/pasting the code.
+</p>
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">data</span> lengthn;
+    <span style="color: #a020f0;">input</span> string $char8.;
+    original = <span style="color: #8b2252;">'*'</span> || string || <span style="color: #8b2252;">'*'</span>;
+    stripped = <span style="color: #8b2252;">'*'</span> || strip(string) || <span style="color: #8b2252;">'*'</span>;
+    <span style="color: #008b8b;">datalines;</span>
 abcd
   abcd
     abcd
 abcdefgh
  x y z
 ;
-run;    </code>    </pre>
-    <p>The SAS <code>CATS</code> function returns a concatenated
-    character string with leading and trailing blanks
-    removed. The <code>CATS</code> function is equivalent to first
-    using <code>LEFT</code> and then passing the result to
-    the <code>TRIM</code> function.</p>
+<span style="color: #008b8b;">run;</span>        
+</pre>
+</div>
+<p>
+The SAS <code>CATS</code> function returns a concatenated character string with leading and trailing blanks removed. The <code>CATS</code> function is equivalent to first using <code>LEFT</code> and then passing the result to the <code>TRIM</code> function.
+</p>
+</div>
+</div>
+<div id="outline-container-org542c508" class="outline-4">
+<h4 id="org542c508"><span class="section-number-4">3.5.2</span> Removing line breaks from a string</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+The SAS <code>TRANSLATE</code> function replaces characters in a string. For
+example, <code>var = translate(var,' ','0A'x);</code> replaces line feeds by
+spaces.  Note that the `to' argument comes before the `from'
+argument.  If you want to <code>TRANSLATE</code> multiple characters, you
+should specify pairs of to and from arguments (although this is not
+required in some operating systems), using a comma as a
+placeholder. 
+</p>
 
-    <h2>Location of the SAS temporary work directory</h2>
-    <pre class="example"><code>%put %sysfunc(getoption(work)); </code></pre>
+<p>
+The SAS function <code>COMPRESS</code> removes characters from a string. For
+examle, <code>compress(source_text, '0D'x);</code> removes Carriage Returns
+from a character variable.
+</p>
 
-    <h2>List of SAS member types</h2>
-    SAS files in a directory are called members of a library. Each member has a member type.
-    <a href="https://v8doc.sas.com/sashtml/win/z1iles.htm">Windows File Extensions and Their Corresponding SAS Member Types</a>
+<p>
+See section <a href="#org41b2091">ASCII control characters</a> for a table with the most
+important characters.
+</p>
+</div>
+</div>
+</div>
 
-    <h2>Dictionary</h2>
-    <a href="http://www.wuss.org/proceedings08/08WUSS%20Proceedings/papers/dmw/dmw07.pdf">
-      Patrick Thornton's overview of dictionary tables and SASHELP views
-    </a>
 
+<div id="outline-container-orgca1595d" class="outline-3">
+<h3 id="orgca1595d"><span class="section-number-3">3.6</span> Location of the SAS temporary work directory</h3>
+<div class="outline-text-3" id="text-3-6">
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">%put</span> <span style="color: #0000ff;">%sysfunc(getoption(</span>work)); 
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd0b4c0b" class="outline-3">
+<h3 id="orgd0b4c0b"><span class="section-number-3">3.7</span> List of SAS member types</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+SAS files in a directory are called members of a library. Each member
+has a <a href="https://v8doc.sas.com/sashtml/win/z1iles.htm#zension">member type</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org4c31fba" class="outline-3">
+<h3 id="org4c31fba"><span class="section-number-3">3.8</span> Dictionary</h3>
+<div class="outline-text-3" id="text-3-8">
+<p title="Patrick Thornton's overview of dictionary tables and SASHELP views ;">
+See <a href="http://support.sas.com/resources/papers/proceedings11/264-2011.pdf" title="Patrick Thornton's overview of dictionary tables and SASHELP views ;">Patrick Thornton's overview of dictionary tables and SASHELP views</a>.
+</p>
+</div>
+</div>
 
-    <h2>Reading data from CSV files</h2>
-    <h3>Line feeds within strings</h3>
-    <p>The SAS code below will change your file on disk using
-    the <code>sharebuffers</code> option, so make sure you keep a
-    backup of your file. </p>
-    <pre class="example"><code>%let repA=' '; /* replacement character for LF */
-%let repD=' '; /* replacement character for CR */
+<div id="outline-container-org906c7f6" class="outline-3">
+<h3 id="org906c7f6"><span class="section-number-3">3.9</span> Reading data from CSV files</h3>
+<div class="outline-text-3" id="text-3-9">
+</div>
+<div id="outline-container-org1c5b7a4" class="outline-4">
+<h4 id="org1c5b7a4"><span class="section-number-4">3.9.1</span> Line feeds within strings</h4>
+<div class="outline-text-4" id="text-3-9-1">
+<p>
+The SAS code below will change your file on disk using the sharebuffers option, so make sure you keep a backup of your file.
+</p>
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">%let</span> repA=<span style="color: #8b2252;">' '</span>; <span style="color: #b22222;">/*</span><span style="color: #b22222;"> replacement character for LF </span><span style="color: #b22222;">*/</span>
+<span style="color: #008b8b;">%let</span> repD=<span style="color: #8b2252;">' '</span>; <span style="color: #b22222;">/*</span><span style="color: #b22222;"> replacement character for CR </span><span style="color: #b22222;">*/</span>
 
-/* name of the CSV file including the full path */
-%let dsnnme="~/Patients2.csv";
+<span style="color: #b22222;">/*</span><span style="color: #b22222;"> name of the CSV file including the full path </span><span style="color: #b22222;">*/</span>
+<span style="color: #008b8b;">%let</span> dsnnme=<span style="color: #8b2252;">"~/Patients2.csv"</span>;
 
-data _null_;
+<span style="color: #008b8b;">data</span> _null_;
 
-  /* RECFM=N reads the file in binary format. The file consists of a */
-  /* stream of bytes with no record boundaries.
-  /* SHAREBUFFERS specifies that the FILE statement and the INFILE   */
-  /* statement share the same buffer. */
-  infile &dsnnme recfm=n sharebuffers;
-  file &dsnnme recfm=n;
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> RECFM=N reads the file in binary format. The file consists of a </span><span style="color: #b22222;">*/</span>
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> stream of bytes with no record boundaries.</span>
+<span style="color: #b22222;">  /* SHAREBUFFERS specifies that the FILE statement and the INFILE   </span><span style="color: #b22222;">*/</span>
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> statement share the same buffer. </span><span style="color: #b22222;">*/</span>
+  <span style="color: #a020f0;">infile</span> &amp;dsnnme recfm=n sharebuffers;
+  <span style="color: #a020f0;">file</span> &amp;dsnnme recfm=n;
 
-  /* OPEN is a flag variable used to determine if the CR/LF is */
-  /* within  double quotes or not. Retain this value.          */
-  retain open 0;
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> OPEN is a flag variable used to determine if the CR/LF is </span><span style="color: #b22222;">*/</span>
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> within  double quotes or not. Retain this value.          </span><span style="color: #b22222;">*/</span>
+  <span style="color: #a020f0;">retain</span> open 0;
 
-  input a $char1.;
+  <span style="color: #a020f0;">input</span> a $char1.;
 
-  /* If the character is a double quote, set OPEN to its opposite
-  value. */
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> If the character is a double quote, set OPEN to its opposite</span>
+<span style="color: #b22222;">  value. </span><span style="color: #b22222;">*/</span>
 
-  if a = '"' then open = ^(open);
+  <span style="color: #a020f0;">if</span> a = <span style="color: #8b2252;">'"'</span> <span style="color: #a020f0;">then</span> open = ^(open);
 
-  /* If the CR or LF is after an open double quote, replace the byte with */
-  /* the appropriate value.                                               */
-  if open then do;
-  if a = '0D'x then put &repD;
-  else if a = '0A'x then put &repA;
-  end;
-run;
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> If the CR or LF is after an open double quote, replace the byte with </span><span style="color: #b22222;">*/</span>
+  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> the appropriate value.                                               </span><span style="color: #b22222;">*/</span>
+  <span style="color: #a020f0;">if</span> open <span style="color: #a020f0;">then</span> <span style="color: #a020f0;">do</span>;
+  <span style="color: #a020f0;">if</span> a = <span style="color: #8b2252;">'0D'</span>x <span style="color: #a020f0;">then</span> <span style="color: #a020f0;">put</span> &amp;repD;
+  <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> a = <span style="color: #8b2252;">'0A'</span>x <span style="color: #a020f0;">then</span> <span style="color: #a020f0;">put</span> &amp;repA;
+  <span style="color: #a020f0;">end;</span>
+<span style="color: #008b8b;">run;</span>
 
-/* use termstr to specify the line-ending style if necessary */
-filename infle '~/Patients2.csv' /*termstr=CRLF*/;
+<span style="color: #b22222;">/*</span><span style="color: #b22222;"> use termstr to specify the line-ending style if necessary </span><span style="color: #b22222;">*/</span>
+<span style="color: #a020f0;">filename</span> infle <span style="color: #8b2252;">'~/Patients2.csv'</span> <span style="color: #b22222;">/*</span><span style="color: #b22222;">termstr=CRLF</span><span style="color: #b22222;">*/</span>;
 
-PROC IMPORT OUT=WORK.patientES DATAFILE=infle
+<span style="color: #008b8b;">PROC IMPORT</span> <span style="color: #a020f0;">OUT=</span>WORK.patientES DATAFILE=infle
     DBMS=DLM REPLACE ;
-    DELIMITER='3B'x;
+    DELIMITER=<span style="color: #8b2252;">'3B'</span>x;
     GETNAMES=YES;
     DATAROW=2;
     GUESSINGROWS=2000;
-	RUN;</code> </pre>
-</p>
-
-
-    <h2>Reading data from difficult txt files</h2>
-    <p> I may be difficult to import a text files into SAS if it
-    contains a character string variable with spaces and the length is
-    not known in advance.  An exampe is the
-    file <code>icd10cm_codes_2018.txt</code>, which can be downloaded
-    from <a href="https://www.cms.gov/Medicare/Coding/ICD10/2018-ICD-10-CM-and-GEMs.html">
-	Centers for Medicare & Medicaid Services</a>.
-      <pre class="example"><code>data icd10book;
-    infile "&projectdir/data/import/icd10/icd10cm_codes_2018.txt";
-    input icd10_code $  icd10_desc & $196.;
-run;</code> </pre> The & (ampersand) format modifier enables you to
-      read character values that contain embedded blanks with list
-      input and to specify a character informat. SAS reads until it
-      encounters multiple blanks.
-      See also chapter
-      <a href="https://v8doc.sas.com/sashtml/lrcon/z0695211.htm">SAS
-      INPUT Statement</a> from the <a href="https://v8doc.sas.com/sashtml/lrcon/index.htm">SAS Language Reference</a>.
-</p>
-
-    <h2>Writing a dataset to a plain text file</h2>
-    <p>
-      <pre class="example"><code>proc export data=mydataset outfile='C:\mydataset.txt' dbms=tab replace;
-    putnames=yes;
-quit;</code> </pre></p>
-
-<h2>Writing data to results viewer</h2>
-<p><pre class="example"><code>data _null_;
-data _null_;
-   set presidents;
-   file print header=newpage;
-   put id @7 name @18 telephone; 
-   return;
-   newpage:
-      put 'patnr' @7 'name' @ 18 'telephone';
-      put 29*'=';
-      return;
-run;</code> </pre></p>
-
-
-  <h1>MS Word</h1>
-  <h2>Minus sign</h2>
-
-  <p>A minus sign may not be separated from following
-  numeric characters or following opening characters, even if a space
-  character intervenes.</p>
-  
-<p>Go to 'insert' &rarr; 'symbol' &rarr; 'more symbols'.  This opens a
-  window.  Choose the correct font.  You can then choose the right
-  symbol from the map, but it is hard to see the differences
-  between various types of hyphens and the minus sign. So instead go
-  to  the field 'character code' abd can enter the code </p>
-
-  
-<table>
-<caption text-align="left">Line breaking properties for some Unicode dashes and hyphens</caption>
-<tr><th>glyph</th> <th>code</th> <th>name</th> <th>line breaking property class</th></tr>
-<tr><td>&#45;</td><td>U+002D</td> <td>hyphen-minus</td>
- <td>HY, Hyphen:       provide a line break opportunity after the character, except in numeric
-   context</td></tr>
-
-<tr><td>&#8208;</td><td>U+2010</td> <td>hyphen</td>
- <td>BA, Break Opportunity After</td></tr>
-<tr><td>&#8209;</td><td>U+2011</td> <td>non-breaking hyphen</td>
- <td>GL, Non-breaking (&#8220;Glue&#8221;): prohibit line breaks before or after</td></tr>
-<tr><td>&#8210;</td><td>U+2012</td> <td>figure dash</td> 
-  <td>BA, Break Opportunity After</td></tr>
-<tr><td>&#8211;</td><td>U+2013</td> <td>en dash</td>
-  <td>BA, Break Opportunity After
-</td></tr>
-<tr><td>&#8212;</td><td>U+2014</td> <td>em dash</td>
- <td>B2, Break Opportunity Before and After</td></tr>
-<tr><td>&#8213;</td><td>U+2015</td> <td>horizontal bar
- <td>AL, Ordinary Alphabetic and Symbol Characters</td></tr>
-
-<tr><td>&#8722;</td><td>U+2212</td> <td>minus sign</td>
- <td>PR, Prefix (Numeric): don&#8217;t break in front of a numeric expression
-</td></tr>
-</table>
+        <span style="color: #008b8b;">RUN;</span> 
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5855d03" class="outline-4">
+<h4 id="org5855d03"><span class="section-number-4">3.9.2</span> Reading data from difficult txt files</h4>
+<div class="outline-text-4" id="text-3-9-2">
 <p>
-<a href="http://jkorpela.fi/dashes.html">Jukka  &#8220;Yucca&#8221; Korpela's page on Dashes and hyphens</a>
+It may be difficult to import a text files into SAS if it contains a character string variable with spaces and the length is not known in advance. An exampe is the file <code>icd10cm_codes_2018.txt</code>, which can be downloaded from Centers for Medicare &amp; Medicaid Services.
 </p>
-  
-  </body>
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">data</span> icd10book;
+    <span style="color: #a020f0;">infile</span> <span style="color: #8b2252;">"&amp;projectdir/data/import/icd10/icd10cm_codes_2018.txt"</span>;
+    <span style="color: #a020f0;">input</span> icd10_code $  icd10_desc &amp; $196.;
+<span style="color: #008b8b;">run;</span> 
+</pre>
+</div>
+<p>
+The &amp; (ampersand) format modifier enables you to read character values that contain embedded blanks with list input and to specify a character informat. SAS reads until it encounters multiple blanks. See also chapter SAS INPUT Statement from the SAS Language Reference.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12cbeca" class="outline-4">
+<h4 id="org12cbeca"><span class="section-number-4">3.9.3</span> Writing a dataset to a plain text file</h4>
+<div class="outline-text-4" id="text-3-9-3">
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">proc export</span> <span style="color: #a020f0;">data=</span>mydataset outfile=<span style="color: #8b2252;">'C:\mydataset.txt'</span> dbms=tab replace;
+    putnames=yes;
+<span style="color: #008b8b;">quit;</span> 
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga791774" class="outline-4">
+<h4 id="orga791774"><span class="section-number-4">3.9.4</span> Writing data to results viewer</h4>
+<div class="outline-text-4" id="text-3-9-4">
+<div class="org-src-container">
+<pre class="src src-sas"><span style="color: #008b8b;">data</span> _null_;
+   <span style="color: #a020f0;">set</span> presidents;
+   <span style="color: #a020f0;">file</span> print header=newpage;
+   <span style="color: #a020f0;">put</span> <span style="color: #a020f0;">id</span> @7 name @18 telephone; 
+   <span style="color: #a020f0;">return;</span>
+   newpage:
+      <span style="color: #a020f0;">put</span> <span style="color: #8b2252;">'patnr'</span> @7 <span style="color: #8b2252;">'name'</span> @ 18 <span style="color: #8b2252;">'telephone'</span>;
+      <span style="color: #a020f0;">put</span> 29*<span style="color: #8b2252;">'='</span>;
+      <span style="color: #a020f0;">return;</span>
+<span style="color: #008b8b;">run;</span> 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc98d4ce" class="outline-2">
+<h2 id="orgc98d4ce"><span class="section-number-2">4</span> Regular Expressions</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+See <a href="https://www.regular-expressions.info/refquick.html">Jan Goyvaerts' Quick Reference</a> for a longer list.
+</p>
+
+<p>
+Remember the difference between <a href="https://www.regular-expressions.info/repeat.html">greedy and lazy</a> matching.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Syntax</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>\\d</code></td>
+<td class="org-left">Digit, 0,1,2 &#x2026; 9</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\D</code></td>
+<td class="org-left">Not Digit</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\s</code></td>
+<td class="org-left">Space</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\S</code></td>
+<td class="org-left">Not Space</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\w</code></td>
+<td class="org-left">Word</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\W</code></td>
+<td class="org-left">Not Word</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\t</code></td>
+<td class="org-left">Tab</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\n</code></td>
+<td class="org-left">New line</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>^</code></td>
+<td class="org-left">Beginning of the string</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$</code></td>
+<td class="org-left">End of the string</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\</code></td>
+<td class="org-left">Escape special characters, for example <code>\\</code> is "<code>\</code>", <code>\+</code> is "<code>+</code>"</td>
+</tr>
+
+<tr>
+<td class="org-left">&vert;</td>
+<td class="org-left">Alternation match, for example <code>/(e\vert{}d)n/</code> matches <code>en</code> and <code>dn</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.</code></td>
+<td class="org-left">Any character, except <code>\n</code> or line terminator</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[ab]</code></td>
+<td class="org-left">a or b</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[^ab]</code></td>
+<td class="org-left">Any character except a and b</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[0-9]</code></td>
+<td class="org-left">All Digit</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[A-Z]</code></td>
+<td class="org-left">All uppercase A to Z letters</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[a-z]</code></td>
+<td class="org-left">All lowercase a to z letters</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[A-z]</code></td>
+<td class="org-left">All Uppercase and lowercase a to z letters</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i+</code></td>
+<td class="org-left">i at least one time</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i*</code></td>
+<td class="org-left">i zero or more times</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i?</code></td>
+<td class="org-left">i zero or 1 time</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i{n}</code></td>
+<td class="org-left">i occurs n times in sequence</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i{n1,n2}</code></td>
+<td class="org-left">i occurs n1 - n2 times in sequence</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i{n1,n2}?</code></td>
+<td class="org-left">non greedy match, see above example</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>i{n,}</code></td>
+<td class="org-left">i occures &gt;= n times</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:alnum:]</code></td>
+<td class="org-left">Alphanumeric characters: [:alpha:] and [:digit:]</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:alpha:]</code></td>
+<td class="org-left">Alphabetic characters: [:lower:] and [:upper:]</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:blank:]</code></td>
+<td class="org-left">Blank characters: for example space, tab</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:cntrl:]</code></td>
+<td class="org-left">Control characters</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:digit:]</code></td>
+<td class="org-left">Digits: 0 1 2 3 4 5 6 7 8 9</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:graph:]</code></td>
+<td class="org-left">Graphical characters: [:alnum:] and [:punct:]</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:lower:]</code></td>
+<td class="org-left">Lower-case letters in the current locale</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:print:]</code></td>
+<td class="org-left">Printable characters: [:alnum:], [:punct:] and space</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:punct:]</code></td>
+<td class="org-left">Punctuation character: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { = &vert; } ~</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:space:]</code></td>
+<td class="org-left">Space characters: tab, newline, vertical tab, form feed, carriage return, space</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:upper:]</code></td>
+<td class="org-left">Upper-case letters in the current locale</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>[:xdigit:]</code></td>
+<td class="org-left">Hexadecimal digits: 0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd44cf8d" class="outline-2">
+<h2 id="orgd44cf8d"><span class="section-number-2">5</span> MS Word</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org0857117" class="outline-3">
+<h3 id="org0857117"><span class="section-number-3">5.1</span> Minus sign</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+A minus sign may not be separated from following numeric characters or following opening characters, even if a space character intervenes.
+</p>
+
+<p>
+Go to 'insert' &rarr; 'symbol' &rarr; 'more
+symbols'. This opens a window. Choose the correct font. You can
+then choose the right symbol from the map, but it is hard to see
+the differences between various types of hyphens and the minus
+sign. So instead go to the field 'character code' abd can enter the
+code
+</p>
+
+<p>
+Line breaking properties for some Unicode dashes and hyphens are
+listed on <a href="http://jkorpela.fi/dashes.html">Jukka `Yucca' Korpela's page on Dashes and hyphens</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org673a5e9" class="outline-2">
+<h2 id="org673a5e9"><span class="section-number-2">6</span> Configuring Notepad++ to run PDFLaTeX</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+In order to setup a Run command in Notepad++, simply press F5 (or
+select Run &rarr; Run&#x2026;). A box like one below should appear.
+</p>
+
+
+<div id="org768ade1" class="figure">
+<p><img src="./img/run-blank.png" alt="run-blank.png" />
+</p>
+</div>
+
+
+<p>
+In order to configure PDFLaTeX, simply enter the command
+<code>cmd /c cd /d "$(CURRENT_DIRECTORY)" &amp;&amp; pdflatex.exe -shell-escape "$(FILE_NAME)"</code>
+</p>
+
+<p>
+and select "Save" (like in the box below).
+</p>
+
+<div id="org2253d01" class="figure">
+<p><img src="./img/run-command.png" alt="run-command.png" />
+</p>
+</div>
+
+<p>
+Then enter PDFLaTeX for the Name, and then select a hotkey (or
+shortcut) to run PDFLaTeX. The box below illustrates this using ALT+F1
+as the hotkey.
+</p>
+
+
+<div id="orgf61a42d" class="figure">
+<p><img src="./img/save.png" alt="save.png" />
+</p>
+</div>
+
+
+<p>
+After selecting "OK" and "Cancel"ing the previous box, PDFLaTeX can be
+executed on the opened LaTeX file simply by pressing the ALT+F1 key
+combination. Below is a table illustrating several suggested commands
+as well as potential hotkey combinations.
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Program/Command</th>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Hotkey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>cmd /c cd /d "$(CURRENT_DIRECTORY)" &amp;&amp; pdflatex.exe -shell-escape "$(FILE_NAME)"</code></td>
+<td class="org-left">PDFLaTeX</td>
+<td class="org-left">ALT+F1</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>"C:\Program Files\SumatraPDF\SumatraPDF.exe" "$(CURRENT_DIRECTORY)\$(NAME_PART).pdf"</code></td>
+<td class="org-left">SumatraPDF</td>
+<td class="org-left">ALT+F2</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>acrord32 "$(CURRENT_DIRECTORY)\$(NAME_PART).pdf"</code></td>
+<td class="org-left">Acrobat Reader</td>
+<td class="org-left">ALT+F3</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>"C:\Program Files\Octave\tools\console\console.exe" -d "$(CURRENT_DIRECTORY)"</code></td>
+<td class="org-left">Octave</td>
+<td class="org-left">ALT+F5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Erik van Werkhoven</p>
+<p class="date">Created: 2020-02-04 Tue 15:54</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
 </html>

@@ -1,0 +1,295 @@
+body {
+    color: black;
+    font-family: sans-serif;
+    line-height: 1.3;
+}
+h1 {
+	margin: 0;
+	font-size: 1.6666666666666667em;
+	margin-bottom: 0.9em;
+	font-family: sans-serif;
+	color: #E05F27;
+}
+h2 {
+	margin: 0;
+	font-size: 1.5em;
+	margin-bottom: 0.75em;
+	font-family: sans-serif;
+	color: #2F7BDE;
+}
+h3 {
+	margin: 0;
+	font-size: 1.3333333333333333em;
+	margin-bottom: 0.75em;
+	font-family: sans-serif;
+	color: #598249;
+}
+h4 {
+	margin: 0;
+	font-size: 1.1666666666666667em;
+	margin-bottom: 0.5em;
+	font-family: sans-serif;
+}
+p, ul, pre, td, th, label {
+	margin: 0;
+	font-size: 1em;
+	margin-bottom: 0.5em;
+	font-family: sans-serif;
+}
+/* Override for source code blocks */
+pre {
+	font-family: monospace;
+}
+
+code {
+	/* no wrapping in code blocks (in addition to pre) */
+	white-space: nowrap;
+}
+
+
+/* Fit images */
+img {
+	max-width:100%;
+	max-height:100%;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+	/* All headers should not be split */
+	display: inline-block;
+	width: 100%;
+}
+
+/*  Simple colors here */
+h5, h6, h7, li {
+	color: #909396;
+}
+pre {
+	color: black;
+	border: 1px solid #ccc;
+}
+::selection {
+    background:lightblue;
+}
+::-moz-selection  { /* Code for Firefox */
+    /* 	background:rgba(57, 60, 63, 0.99); */
+    background:lightblue;
+}
+a:link, a:hover, a:active {
+	color: #d6372f;
+}
+a:visited {
+	color: #c02119;
+}
+
+p.small, #postamble {
+	margin: 0;
+	font-size: 0.8333333333333334em;
+	margin-bottom: 1.8em;
+}
+table {
+	border-collapse: collapse;
+	margin-bottom: 1.5em;
+}
+/* @end */
+
+/* @group Layout */
+
+#content {
+	max-width: 72em; /* moet div.outline-2 z'n max-width zijn min breedte table of contents */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* #header {
+	height: 10em;
+}
+*/
+
+/* #table-of-contents { */
+/* 	max-width: 15em; */
+/* 	float: right; */
+/* 	overflow: auto; */
+/* 	font-size: 16px; */
+/* 	position: relative; */
+/* 	z-index: 10; */
+/* } */
+
+#table-of-contents {
+    float: right;
+    background: white;
+    overflow: auto;
+    font-size: 16px;
+    position: fixed;
+    right: 0em; 
+    top: 0em; 
+    z-index: 10;
+}
+
+#table-of-contents h2 {
+    align: right;
+        max-width: 9em;
+        font-weight: normal;
+        padding-top: 0.05em;
+	padding-bottom: 0.05em;  
+         
+    }
+
+#table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left;
+}
+#table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 0.5em;
+    margin-top: -1.5em;
+}
+
+#table-of-contents #text-table-of-contents ul {
+    list-style-position: outside;
+}
+
+
+
+
+/* #main { */
+div.outline-2 {
+	max-width: 55em;
+	/* The lines below are useful if the "main" div isn't available and
+	   div.outline-2 has to be used. */
+	position: relative;
+}
+
+#postamble {
+	clear: both;
+	text-align: center;
+}
+
+div.outline-2 pre {
+	overflow: auto;
+}
+
+/* @end */
+
+/* @group Header */
+
+h1.title {
+	margin-top: 10px;
+	text-align: center;
+}
+
+h1.title {
+	font-size: 2.2em;
+	font-weight: bold;
+	margin-bottom: 0.8em;
+}
+
+/* @end */
+
+/* @group Org Keywords */
+
+.todo {
+	color: #bd3832;
+}
+
+.done {
+	color: #598249;
+}
+
+.tag {
+	color: #2F7BDE;
+	text-transform: lowercase;
+	/* This will be obscured by the surrounding span tag, so blank everything. */
+	background: #2B2B2C;
+	border: none;
+/* position: relative;
+	text-align: right;
+	right: 1em; */
+}
+
+.org-ol {
+	/* This is a bit of a hack... */
+	margin-top: 0;
+}
+
+.timestamp {
+}
+
+.timestamp-kwd  {
+	/* keyword associated with a time stamp, like SCHEDULED */
+}
+
+.target {
+	/* target for links */
+}
+
+/* @end */
+
+/* @group Table of Contents */
+
+#table-of-contents ul,
+#table-of-contents ol {
+	padding-left: 1em;
+}
+
+/* @end */
+
+/* @group Outline Level 2 */
+
+.outline-2 h2 {
+	border-bottom: 1px solid;
+	border-radius: 2px;
+}
+
+.outline-2 {
+	padding: 5px;
+	/* margin-bottom: 10px; */
+	/* border-top: 1px solid #ccc; */
+}
+
+/* @end */
+
+td {
+	border: 1px solid black;
+}
+
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+	border-radius: 2px;
+}
+
+.outline-1, .outline-2, .outline-3, .outline-4, .outline-5, .outline-6 {
+	margin-left: 1em;
+}
+
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	border-bottom: 1px dotted;
+}
+
+#postamble p {
+	margin: 0px;
+}
+
+.footpara { display: inline; }
+
+.footdef { margin-bottom: 3em; font-size: 80%; }
+
+.div-wrap {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 5px;
+}
+
+.div-left {
+	grid-column: span 2 / auto;
+}
+.div-right {
+	grid-column: span 2 / auto;
+	text-align: right;
+}
+.div-center {
+	text-align: center;
+}
