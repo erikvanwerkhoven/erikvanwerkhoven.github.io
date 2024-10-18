@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./erik.css">
+    <title>Biometrics software FAQ</title>
+  </head>
+  <body>
+    <h1>Emacs</h1>
+    <h2>ASCII control characters</h2>
+    The most important control characters are horizontal tab, line
+    feed, and carriage return. Tab is for moving the printing position
+    some spaces to the right. Depending on the operating system, line
+    feed, carriage return or the combination of them indicate the end
+    of a line.
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Notepad ++</th>
+        <th>ASCII</th>
+	<th>ASCII Hex</th>
+        <th>String Notation</th>
+        <th>Caret Notation</th>
+        <th>Input method</th>
+      </tr>
+      <tr>
+        <td>Horizontal Tab</td>
+        <td>&rarr;</td>
+        <td>9</td>
+	<td>09</td>
+        <td><code>\t</code></td>
+        <td><code>^I</code></td>
+        <td>C-q C-i</td>
+      </tr>
+      <tr>
+        <td>Line Feed</td>
+        <td>LF</td>
+        <td>10</td>
+	<td>0A</td>
+        <td><code>\n</code></td>
+        <td><code>^J</code></td>
+        <td>C-q C-j</td>
+      </tr>
+      <tr>
+        <td>Carriage Return</td>
+        <td>CR</td>
+        <td>13</td>
+	<td>0D</td>
+        <td><code>\r</code></td>
+        <td><code>^M</code></td>
+        <td>C-q C-m</td>
+      </tr>
+    </table>
+    <p>Example: SAS uses hexadecimal notation, so the line feed character (LF) in SAS
+    is <code>'0A'x</code>, and CRLF is <code>'0D0A'x</code>.</p>
+
+    <p> Example: the SAS function call:
+      <code>compress(source_text, '0D'x);</code> removes Carriage Returns from a character variable.</p>
+
+    <p>Following is the newline convention in different operating systems.</p>
+    <table>
+      <tr>
+        <th>Operating System</th>
+        <th>Newline Convention</th>
+        <th>Notes</th></tr>
+      <tr>
+        <td>Unix, Linux, Mac OS X</td>
+        <td><code>\n</code></td>
+        <td>Mac OS X prefers <code>\n</code>, but accepts the Mac OS
+          Classic's <code>\r</code> too.</td>
+      </tr>
+      <tr>
+        <td>Windows</td>
+        <td><code>\r\n</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Mac OS Classic</td>
+        <td><code>\r</code></td>
+        <td></td>
+      </tr>
+    </table>
+
+
+
+    <h1>Administration of drugs</h1>
+    <table>
+      <tr>
+        <th>Abbrev.</th>
+        <th>Meaning</th>
+        <th>Latin (or New Latin) origin</th>
+      </tr>
+      <tr>
+        <td>a.c.</td>
+        <td>Before meals</td>
+        <td>ante cibum</td>
+      </tr>
+      <tr>
+        <td>q.o.d</td>
+        <td>Every other day</td>
+        <td>quaque otra die</td>
+      </tr>
+      <tr>
+        <td>q.i.d</td>
+        <td>Four times a day</td>
+        <td>quater in die</td>
+      </tr>
+      <tr>
+        <td>a.m.</td>
+        <td>After noon</td>
+        <td>post meridiem</td>
+      </tr>
+      <tr>
+        <td>p.m.</td>
+        <td>Morning</td>
+        <td>ante meridiem</td>
+      </tr>
+      <tr>
+        <td>b.i.d. (or bid)</td>
+        <td>Twice a day/daily</td>
+        <td>bis in die</td>
+      </tr>
+      <tr>
+        <td>gtt.</td>
+        <td>Drop(s)</td>
+        <td>gutta(e)</td>
+      </tr>
+      <tr>
+        <td>h.</td>
+        <td>Hour</td>
+        <td>hora</td>
+      </tr>
+      <tr>
+        <td>h.s.</td>
+        <td>At bedtime</td>
+        <td>hora somni</td>
+      </tr>
+      <tr>
+        <td>o.d.</td>
+        <td>Right eye</td>
+        <td>oculus dexter</td>
+      </tr>
+      <tr>
+        <td>o.s.</td>
+        <td>Left eye</td>
+        <td>oculus sinister</td>
+      </tr>
+      <tr>
+        <td>o.u.</td>
+        <td>Both eyes</td>
+        <td>oculus uterque</td>
+      </tr>
+      <tr>
+        <td>p.c.</td>
+        <td>After meal</td>
+        <td>post cibum</td>
+      </tr>
+      <tr>
+        <td>p.m.</td>
+        <td>Afternoon</td>
+        <td>post meridiem</td>
+      </tr>
+      <tr>
+        <td>p.o. (or po)</td>
+        <td>Orally / by mouth</td>
+        <td>per os</td>
+      </tr>
+      <tr>
+        <td>p.r. (or pr)</td>
+        <td>Rectally</td>
+        <td>per rectum</td>
+      </tr>
+      <tr>
+        <td>p.r.n.</td>
+        <td>As needed</td>
+        <td>pro re nata</td>
+      </tr>
+      <tr>
+        <td>q.</td>
+        <td>every </td>
+        <td>quaque</td>
+      </tr>
+      <tr>
+        <td>q.2.h.</td>
+        <td>Every two hours</td>
+        <td>quaque secunda hora</td>
+      </tr>
+      <tr>
+        <td>q.4.h.</td>
+        <td>Every four hours</td>
+        <td>quaque quarta hora</td>
+      </tr>
+      <tr>
+        <td>q.6.h.</td>
+        <td>Every six hours</td>
+        <td>quaque sexta hora</td>
+      </tr>
+      <tr>
+        <td>q.8.h.</td>
+        <td>Every eight hours</td>
+        <td>quaque octava hora</td>
+      </tr>
+      <tr>
+        <td>q.d. (or qd)</td>
+        <td>Every day/daily</td>
+        <td>quaque die</td>
+      </tr>
+      <tr>
+        <td>q.i.d</td>
+        <td>Four times a day</td>
+        <td>quater in die</td>
+      </tr>
+      <tr>
+        <td>q.h.</td>
+        <td>Every hour, hourly</td>
+        <td>quaque hora</td>
+      </tr>
+      <tr>
+        <td>q.s.</td>
+        <td>A sufficient quantity</td>
+        <td>quantum sufficiat</td>
+      </tr>
+      <tr>
+        <td>Sig. (or S.)</td>
+        <td>Directions to patient</td>
+        <td>signa</td>
+      </tr>
+      <tr>
+        <td>Stat.</td>
+        <td>Immediately, with no delay</td>
+        <td>statim</td>
+      </tr>
+      <tr>
+        <td>t.i.d. (or tid)</td>
+        <td>Three times a day</td>
+        <td>ter in die</td>
+      </tr>
+      <tr>
+        <td>s.i.d. (or sid)</td>
+        <td>Once per day</td>
+        <td>semel in die</td>
+      </tr>
+      <tr>
+        <td>u.d. (or Ut dict.)</td>
+        <td>As directed</td>
+        <td>ut dictum</td>
+      </tr>
+
+      <tr>
+        <td>IM</td>
+        <td>intramuscular</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>IP</td>
+        <td>Intraperitoneal</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>IV</td>
+        <td>Intravenous</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>IN</td>
+        <td>Intranasal</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+
+
+   <h1>SAS</h1>
+    <h2>Converting a variable from numeric to character</h2>
+    <p>Following is an example of how to create a character variable
+      from a numeric variable.
+      The example uses the <code>PUT</code>
+      function. The <code>PUT</code> function writes values with a
+      specified format. It takes two arguments: the name of the
+      variable, and a SAS format or user-defined format for writing
+      the data.
+      By default, if the first argument (the source) is numeric, the
+      resulting string will be right aligned, and if the it is
+      character, the result will be left aligned.
+      To override the default alignment, you can add an alignment
+      specification to a format: <code>-L</code> left aligns the
+      value, <code>-C</code> centers the value, and <code>-R</code>
+      right aligns the value.
+    <pre class="example"> <code>data presidents;
+	input id name $11.  telephone $12.;
+    datalines;
+    1  Washington 0
+    19 Hayes      1
+    44 Obama      202-456-1111
+    ;
+    run;
+data character;
+    set presidents;
+    phone_char = PUT(phone_number, 12.);
+    run; </code></pre>
+    </p>
+
+    <h2>Converting a variable from numeric to character respecting the format </h2>
+    <p>Following is an example of how to create a character variable
+      from a numeric variable which has a format. The aim is to
+      retrieve the formatted value as a character string.  The example
+      uses the <code>VVALUE</code> function. The <code>VALUE</code>
+      function writes the formatted value of a variable as a character
+      string.
+    <pre class="example"><code>proc format library=work;
+    value president_
+        0  = 'Washington'
+        16 = 'Lincoln'
+        44 = 'Obama';
+quit;
+data presidents_numeric;
+    input id name;
+    datalines;
+    1 0
+    2 16
+    3 44
+    ;
+run;
+data presidents_formatted;
+    set presidents_numeric;
+    attrib name format = president_.;
+run;
+data presidents_character;
+    set presidents_formatted;
+    president_char = VVALUE(name);
+run; </code></pre>
+    </p>
+
+    <h2>Converting a variable from character to numeric</h2>
+    <p>Following is an example of how to create a numeric variable
+      from a character variable.
+      The example uses the <code>INPUT</code> function.
+      The <code>INPUT</code> function can convert values by using a
+      specified informat.
+      The informat determines whether the result is numeric or
+      character.
+      It takes two arguments: the name of the
+      variable, and a SAS informat for reading the data.
+      The difference with the <code>PUT</code> function is that
+      <code>INPUT</code> uses an informat instead of a format.
+      <pre class="example"> <code>data presidents;
+    input id name $ phone_number $12.;
+    datalines;
+    1 Washington 0
+    19 Hayes 1
+    44 Obama 2024561111
+    ;
+run;
+data numeric;
+    set presidents;
+    phone_num = INPUT(phone_number, 12.);
+run; </code></pre>
+    </p>
+
+
+
+    <h2>Extracting the last character from a string</h2>
+    <p>The following example shows how to extract the last
+      character from a character string variable.
+      The example uses the <code>REVERSE</code> and the <code>SUBSTR</code> functions.
+      The <code>REVERSE</code> function returns a character string backward. The last
+      character in the argument becomes the first character in the
+      result, the next-to-last character in the argument becomes the
+      second character in the result, and so on.
+      The <code>SUBSTR</code> function returns a substring of the first
+      argument. The second argument is the position of the first
+      character of the substring to extract. The optional third
+      argument specifies the length of the substring. If no length is
+      specified SAS will read on until the end of the string.
+
+      <pre class="example"> <code>data presidents;
+    input id name $ telephone $12.;
+    datalines;
+    1  Washington 0
+    19 Hayes 1
+    44 Obama 202-456-1111
+    ;
+run;
+
+data annotate;
+    set presidents;
+    char_rev = REVERSE(telephone);
+    char_last = SUBSTR(COMPRESS(char_rev), 1, 1);
+    IF char_last=1 THEN note = 'President with phone number ending in 1';
+    run; </code> </pre>
+    </p>
+
+    <h2>Removing blanks from a string</h2>
+    <h3>Leading and trailing blanks</h3>
+    <p>The SAS function <code>STRIP</code> returns a character string
+      with all leading and trailing blanks removed. To demonstrate
+      this functionality, the number of spaces at the beginning of
+      the lines after the <code>datalines</code> statement was chosen
+      deliberately; make sure to keep them intact when copy/pasting
+      the code. </p>
+    <pre class="example"><code>data lengthn;
+    input string $char8.;
+    original = '*' || string || '*';
+    stripped = '*' || strip(string) || '*';
+    datalines;
+abcd
+  abcd
+    abcd
+abcdefgh
+ x y z
+;
+run;    </code>    </pre>
+    <p>The SAS <code>CATS</code> function returns a concatenated
+    character string with leading and trailing blanks
+    removed. The <code>CATS</code> function is equivalent to first
+    using <code>LEFT</code> and then passing the result to
+    the <code>TRIM</code> function.</p>
+
+    <h2>Location of the SAS temporary work directory</h2>
+    <pre class="example"><code>%put %sysfunc(getoption(work)); </code></pre>
+
+    <h2>List of SAS member types</h2>
+    SAS files in a directory are called members of a library. Each member has a member type.
+    <a href="https://v8doc.sas.com/sashtml/win/z1iles.htm">Windows File Extensions and Their Corresponding SAS Member Types</a>
+
+    <h2>Dictionary</h2>
+    <a href="http://www.wuss.org/proceedings08/08WUSS%20Proceedings/papers/dmw/dmw07.pdf">
+      Patrick Thornton's overview of dictionary tables and SASHELP views
+    </a>
+
+
+    <h2>Reading data from CSV files</h2>
+    <h3>Line feeds within strings</h3>
+    <p>The SAS code below will change your file on disk using
+    the <code>sharebuffers</code> option, so make sure you keep a
+    backup of your file. </p>
+    <pre class="example"><code>%let repA=' '; /* replacement character for LF */
+%let repD=' '; /* replacement character for CR */
+
+/* name of the CSV file including the full path */
+%let dsnnme="~/Patients2.csv";
+
+data _null_;
+
+  /* RECFM=N reads the file in binary format. The file consists of a */
+  /* stream of bytes with no record boundaries.
+  /* SHAREBUFFERS specifies that the FILE statement and the INFILE   */
+  /* statement share the same buffer. */
+  infile &dsnnme recfm=n sharebuffers;
+  file &dsnnme recfm=n;
+
+  /* OPEN is a flag variable used to determine if the CR/LF is */
+  /* within  double quotes or not. Retain this value.          */
+  retain open 0;
+
+  input a $char1.;
+
+  /* If the character is a double quote, set OPEN to its opposite
+  value. */
+
+  if a = '"' then open = ^(open);
+
+  /* If the CR or LF is after an open double quote, replace the byte with */
+  /* the appropriate value.                                               */
+  if open then do;
+  if a = '0D'x then put &repD;
+  else if a = '0A'x then put &repA;
+  end;
+run;
+
+/* use termstr to specify the line-ending style if necessary */
+filename infle '~/Patients2.csv' /*termstr=CRLF*/;
+
+PROC IMPORT OUT=WORK.patientES DATAFILE=infle
+    DBMS=DLM REPLACE ;
+    DELIMITER='3B'x;
+    GETNAMES=YES;
+    DATAROW=2;
+    GUESSINGROWS=2000;
+	RUN;</code> </pre>
+</p>
+
+
+    <h2>Reading data from difficult txt files</h2>
+    <p> I may be difficult to import a text files into SAS if it
+    contains a character string variable with spaces and the length is
+    not known in advance.  An exampe is the
+    file <code>icd10cm_codes_2018.txt</code>, which can be downloaded
+    from <a href="https://www.cms.gov/Medicare/Coding/ICD10/2018-ICD-10-CM-and-GEMs.html">
+	Centers for Medicare & Medicaid Services</a>.
+      <pre class="example"><code>data icd10book;
+    infile "&projectdir/data/import/icd10/icd10cm_codes_2018.txt";
+    input icd10_code $  icd10_desc & $196.;
+run;</code> </pre> The & (ampersand) format modifier enables you to
+      read character values that contain embedded blanks with list
+      input and to specify a character informat. SAS reads until it
+      encounters multiple blanks.
+      See also chapter
+      <a href="https://v8doc.sas.com/sashtml/lrcon/z0695211.htm">SAS
+      INPUT Statement</a> from the <a href="https://v8doc.sas.com/sashtml/lrcon/index.htm">SAS Language Reference</a>.
+</p>
+
+    <h2>Writing a dataset to a plain text file</h2>
+    <p>
+      <pre class="example"><code>proc export data=mydataset outfile='C:\mydataset.txt' dbms=tab replace;
+    putnames=yes;
+quit;</code> </pre></p>
+
+<h2>Writing data to results viewer</h2>
+<p><pre class="example"><code>data _null_;
+data _null_;
+   set presidents;
+   file print header=newpage;
+   put id @7 name @18 telephone; 
+   return;
+   newpage:
+      put 'patnr' @7 'name' @ 18 'telephone';
+      put 29*'=';
+      return;
+run;</code> </pre></p>
+
+
+  <h1>MS Word</h1>
+  <h2>Minus sign</h2>
+
+  <p>A minus sign may not be separated from following
+  numeric characters or following opening characters, even if a space
+  character intervenes.</p>
+  
+<p>Go to 'insert' &rarr; 'symbol' &rarr; 'more symbols'.  This opens a
+  window.  Choose the correct font.  You can then choose the right
+  symbol from the map, but it is hard to see the differences
+  between various types of hyphens and the minus sign. So instead go
+  to  the field 'character code' abd can enter the code </p>
+
+  
+<table>
+<caption text-align="left">Line breaking properties for some Unicode dashes and hyphens</caption>
+<tr><th>glyph</th> <th>code</th> <th>name</th> <th>line breaking property class</th></tr>
+<tr><td>&#45;</td><td>U+002D</td> <td>hyphen-minus</td>
+ <td>HY, Hyphen:       provide a line break opportunity after the character, except in numeric
+   context</td></tr>
+
+<tr><td>&#8208;</td><td>U+2010</td> <td>hyphen</td>
+ <td>BA, Break Opportunity After</td></tr>
+<tr><td>&#8209;</td><td>U+2011</td> <td>non-breaking hyphen</td>
+ <td>GL, Non-breaking (&#8220;Glue&#8221;): prohibit line breaks before or after</td></tr>
+<tr><td>&#8210;</td><td>U+2012</td> <td>figure dash</td> 
+  <td>BA, Break Opportunity After</td></tr>
+<tr><td>&#8211;</td><td>U+2013</td> <td>en dash</td>
+  <td>BA, Break Opportunity After
+</td></tr>
+<tr><td>&#8212;</td><td>U+2014</td> <td>em dash</td>
+ <td>B2, Break Opportunity Before and After</td></tr>
+<tr><td>&#8213;</td><td>U+2015</td> <td>horizontal bar
+ <td>AL, Ordinary Alphabetic and Symbol Characters</td></tr>
+
+<tr><td>&#8722;</td><td>U+2212</td> <td>minus sign</td>
+ <td>PR, Prefix (Numeric): don&#8217;t break in front of a numeric expression
+</td></tr>
+</table>
+<p>
+<a href="http://jkorpela.fi/dashes.html">Jukka  &#8220;Yucca&#8221; Korpela's page on Dashes and hyphens</a>
+</p>
+  
+  </body>
+</html>
