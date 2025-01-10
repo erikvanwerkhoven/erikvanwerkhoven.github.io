@@ -1,0 +1,18 @@
+The null hypothesis will be that the probability of reduced coverage
+of the recurrence volume by the radiotherapy plan based on a CTV_aMRI,
+is more than or equal to 0.20. With a sample size of 48 patients whom
+have developed tumor recurrence, an exact binomial test with a
+one-sided significance level (alpha) of 0.025 will have 90% power to
+reject the null hypothesis if the true probability is 0.050.
+
+
+
+
+METC 3: “an exact binomial test with a one-sided significance level
+(alpha) of 0.025 will have 90% power to reject the null hypothesis if
+the true probability is 0.050.” Graag deze true probability
+onderbouwen (literatuur/pilot data).
+
+Wij verwachten dat er heleaal geen verschil zal zijn, dwz dat de true
+probability 0% is.  Voor de berekeing zijn we uitgegaan van 5% als
+iets pessimistischer scenario.
