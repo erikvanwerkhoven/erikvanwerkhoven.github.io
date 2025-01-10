@@ -1,1320 +1,706 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2020-02-04 Tue 15:54 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Biometrics Software FAQ</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Erik van Werkhoven" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.550">
+
+  <title>index</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
   }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
   }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
   }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
+  .callout .callout-body-container {
+    flex-grow: 1;
   }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" href="src/erik.css"/>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
 
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
 
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
 
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
-<body>
-<div id="content">
-<h1 class="title">Biometrics Software FAQ</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgf97a6ef">1. Abbreviations used for administration of drugs</a></li>
-<li><a href="#orga3424a8">2. ASCII control characters</a></li>
-<li><a href="#org85e5fea">3. SAS</a>
-<ul>
-<li><a href="#orga4c39ce">3.1. Converting a variable from numeric to character</a></li>
-<li><a href="#orgbf90c7c">3.2. Converting a variable from numeric to character respecting the format</a></li>
-<li><a href="#orga44331e">3.3. Converting a variable from character to numeric</a></li>
-<li><a href="#orgd36e024">3.4. Extracting the last character from a string</a></li>
-<li><a href="#org1b500cb">3.5. Removing blanks from a string</a>
-<ul>
-<li><a href="#org6a7b62b">3.5.1. Leading and trailing blanks</a></li>
-<li><a href="#org542c508">3.5.2. Removing line breaks from a string</a></li>
-</ul>
-</li>
-<li><a href="#orgca1595d">3.6. Location of the SAS temporary work directory</a></li>
-<li><a href="#orgd0b4c0b">3.7. List of SAS member types</a></li>
-<li><a href="#org4c31fba">3.8. Dictionary</a></li>
-<li><a href="#org906c7f6">3.9. Reading data from CSV files</a>
-<ul>
-<li><a href="#org1c5b7a4">3.9.1. Line feeds within strings</a></li>
-<li><a href="#org5855d03">3.9.2. Reading data from difficult txt files</a></li>
-<li><a href="#org12cbeca">3.9.3. Writing a dataset to a plain text file</a></li>
-<li><a href="#orga791774">3.9.4. Writing data to results viewer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgc98d4ce">4. Regular Expressions</a></li>
-<li><a href="#orgd44cf8d">5. MS Word</a>
-<ul>
-<li><a href="#org0857117">5.1. Minus sign</a></li>
-</ul>
-</li>
-<li><a href="#org673a5e9">6. Configuring Notepad++ to run PDFLaTeX</a></li>
-</ul>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level2">
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
 </div>
 </div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
 
-<div id="outline-container-orgf97a6ef" class="outline-2">
-<h2 id="orgf97a6ef"><span class="section-number-2">1</span> Abbreviations used for administration of drugs</h2>
-<div class="outline-text-2" id="text-1">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Abbrev.</th>
-<th scope="col" class="org-left">Meaning</th>
-<th scope="col" class="org-left">Latin (or New Latin) origin</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">a.c.</td>
-<td class="org-left">Before meals</td>
-<td class="org-left">ante cibum</td>
-</tr>
-
-<tr>
-<td class="org-left">q.o.d</td>
-<td class="org-left">Every other day</td>
-<td class="org-left">quaque otra die</td>
-</tr>
-
-<tr>
-<td class="org-left">q.i.d</td>
-<td class="org-left">Four times a day</td>
-<td class="org-left">quater in die</td>
-</tr>
-
-<tr>
-<td class="org-left">a.m.</td>
-<td class="org-left">After noon</td>
-<td class="org-left">post meridiem</td>
-</tr>
-
-<tr>
-<td class="org-left">p.m.</td>
-<td class="org-left">Morning</td>
-<td class="org-left">ante meridiem</td>
-</tr>
-
-<tr>
-<td class="org-left">b.i.d. (or bid)</td>
-<td class="org-left">Twice a day/daily</td>
-<td class="org-left">bis in die</td>
-</tr>
-
-<tr>
-<td class="org-left">gtt.</td>
-<td class="org-left">Drop(s)</td>
-<td class="org-left">gutta(e)</td>
-</tr>
-
-<tr>
-<td class="org-left">h.</td>
-<td class="org-left">Hour</td>
-<td class="org-left">hora</td>
-</tr>
-
-<tr>
-<td class="org-left">h.s.</td>
-<td class="org-left">At bedtime</td>
-<td class="org-left">hora somni</td>
-</tr>
-
-<tr>
-<td class="org-left">o.d.</td>
-<td class="org-left">Right eye</td>
-<td class="org-left">oculus dexter</td>
-</tr>
-
-<tr>
-<td class="org-left">o.s.</td>
-<td class="org-left">Left eye</td>
-<td class="org-left">oculus sinister</td>
-</tr>
-
-<tr>
-<td class="org-left">o.u.</td>
-<td class="org-left">Both eyes</td>
-<td class="org-left">oculus uterque</td>
-</tr>
-
-<tr>
-<td class="org-left">p.c.</td>
-<td class="org-left">After meal</td>
-<td class="org-left">post cibum</td>
-</tr>
-
-<tr>
-<td class="org-left">p.m.</td>
-<td class="org-left">Afternoon</td>
-<td class="org-left">post meridiem</td>
-</tr>
-
-<tr>
-<td class="org-left">p.o. (or po)</td>
-<td class="org-left">Orally / by mouth</td>
-<td class="org-left">per os</td>
-</tr>
-
-<tr>
-<td class="org-left">p.r. (or pr)</td>
-<td class="org-left">Rectally</td>
-<td class="org-left">per rectum</td>
-</tr>
-
-<tr>
-<td class="org-left">p.r.n.</td>
-<td class="org-left">As needed</td>
-<td class="org-left">pro re nata</td>
-</tr>
-
-<tr>
-<td class="org-left">q.</td>
-<td class="org-left">every</td>
-<td class="org-left">quaque</td>
-</tr>
-
-<tr>
-<td class="org-left">q.2.h.</td>
-<td class="org-left">Every two hours</td>
-<td class="org-left">quaque secunda hora</td>
-</tr>
-
-<tr>
-<td class="org-left">q.4.h.</td>
-<td class="org-left">Every four hours</td>
-<td class="org-left">quaque quarta hora</td>
-</tr>
-
-<tr>
-<td class="org-left">q.6.h.</td>
-<td class="org-left">Every six hours</td>
-<td class="org-left">quaque sexta hora</td>
-</tr>
-
-<tr>
-<td class="org-left">q.8.h.</td>
-<td class="org-left">Every eight hours</td>
-<td class="org-left">quaque octava hora</td>
-</tr>
-
-<tr>
-<td class="org-left">q.d. (or qd)</td>
-<td class="org-left">Every day/daily</td>
-<td class="org-left">quaque die</td>
-</tr>
-
-<tr>
-<td class="org-left">q.i.d</td>
-<td class="org-left">Four times a day</td>
-<td class="org-left">quater in die</td>
-</tr>
-
-<tr>
-<td class="org-left">q.h.</td>
-<td class="org-left">Every hour, hourly</td>
-<td class="org-left">quaque hora</td>
-</tr>
-
-<tr>
-<td class="org-left">q.s.</td>
-<td class="org-left">A sufficient quantity</td>
-<td class="org-left">quantum sufficiat</td>
-</tr>
-
-<tr>
-<td class="org-left">Sig. (or S.)</td>
-<td class="org-left">Directions to patient</td>
-<td class="org-left">signa</td>
-</tr>
-
-<tr>
-<td class="org-left">Stat.</td>
-<td class="org-left">Immediately, with no delay</td>
-<td class="org-left">statim</td>
-</tr>
-
-<tr>
-<td class="org-left">t.i.d. (or tid)</td>
-<td class="org-left">Three times a day</td>
-<td class="org-left">ter in die</td>
-</tr>
-
-<tr>
-<td class="org-left">s.i.d. (or sid)</td>
-<td class="org-left">Once per day</td>
-<td class="org-left">semel in die</td>
-</tr>
-
-<tr>
-<td class="org-left">u.d. (or Ut dict.)</td>
-<td class="org-left">As directed</td>
-<td class="org-left">ut dictum</td>
-</tr>
-
-<tr>
-<td class="org-left">IM</td>
-<td class="org-left">intramuscular</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">IP</td>
-<td class="org-left">Intraperitoneal</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">IV</td>
-<td class="org-left">Intravenous</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">IN</td>
-<td class="org-left">Intranasal</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-orga3424a8" class="outline-2">
-<h2 id="orga3424a8"><span class="section-number-2">2</span> ASCII control characters</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-<a id="org41b2091"></a>The most important control characters are horizontal tab, line
-feed, and carriage return. Tab is for moving the printing position
-some spaces to the right. Depending on the operating system, line
-feed, carriage return or the combination of them indicate the end
-of a line.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Name</th>
-<th scope="col" class="org-left">Notepad ++</th>
-<th scope="col" class="org-right">ASCII</th>
-<th scope="col" class="org-right">ASCII Hex</th>
-<th scope="col" class="org-left">String Notation</th>
-<th scope="col" class="org-left">Caret Notation</th>
-<th scope="col" class="org-left">Input method</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Horizontal Tab</td>
-<td class="org-left">&rarr;</td>
-<td class="org-right">9</td>
-<td class="org-right">09</td>
-<td class="org-left"><code>\t</code></td>
-<td class="org-left"><code>^I</code></td>
-<td class="org-left"><code>C-q C-i</code></td>
-</tr>
-
-<tr>
-<td class="org-left">Line Feed</td>
-<td class="org-left">LF</td>
-<td class="org-right">10</td>
-<td class="org-right">0A</td>
-<td class="org-left"><code>\n</code></td>
-<td class="org-left"><code>^J</code></td>
-<td class="org-left"><code>C-q C-j</code></td>
-</tr>
-
-<tr>
-<td class="org-left">Carriage Return</td>
-<td class="org-left">CR</td>
-<td class="org-right">13</td>
-<td class="org-right">0D</td>
-<td class="org-left"><code>\r</code></td>
-<td class="org-left"><code>^M</code></td>
-<td class="org-left"><code>C-q C-m</code></td>
-</tr>
-</tbody>
-</table>
-
-
-<p>
-Example: SAS uses hexadecimal notation, so the line feed character (LF) in SAS is <code>'0A'x,</code> and <code>CRLF</code> is <code>'0D0A'x</code>.
-</p>
-
-<p>
-Example: the SAS function call: <code>compress(source_text, '0D'x);</code> removes Carriage Returns from a character variable.
-</p>
-
-<p>
-Following is the newline convention in different operating systems.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Operating System</th>
-<th scope="col" class="org-left">Newline Convention</th>
-<th scope="col" class="org-left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Unix, Linux, Mac OS X</td>
-<td class="org-left"><code>\n</code></td>
-<td class="org-left">Mac OS X prefers <code>\n</code>, but accepts the Mac OS Classic's <code>\r</code> too.</td>
-</tr>
-
-<tr>
-<td class="org-left">Windows</td>
-<td class="org-left"><code>\r\n</code></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Mac OS Classic</td>
-<td class="org-left"><code>\r</code></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org85e5fea" class="outline-2">
-<h2 id="org85e5fea"><span class="section-number-2">3</span> SAS</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-orga4c39ce" class="outline-3">
-<h3 id="orga4c39ce"><span class="section-number-3">3.1</span> Converting a variable from numeric to character</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-Following is an example of how to create a character variable from
-a numeric variable. The example uses the PUT function. The PUT
-function writes values with a specified format. It takes two
-arguments: the name of the variable, and a SAS format or
-user-defined format for writing the data. By default, if the first
-argument (the source) is numeric, the resulting string will be
-right aligned, and if the it is character, the result will be left
-aligned. To override the default alignment, you can add an
-alignment specification to a format: -L left aligns the value, -C
-centers the value, and -R right aligns the value.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">data</span> presidents;
-    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name $11. telephone $12.;
-    <span style="color: #008b8b;">datalines;</span>
-    1  Washington 0
-    19 Hayes      1
-    44 Obama      202-456-1111
-    ;
-    <span style="color: #008b8b;">run;</span>
-<span style="color: #008b8b;">data</span> character;
-    <span style="color: #a020f0;">set</span> presidents;
-    phone_char = <span style="color: #0000ff;">PUT(</span>phone_number, 12.);
-    <span style="color: #008b8b;">run;</span> 
-</pre>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgbf90c7c" class="outline-3">
-<h3 id="orgbf90c7c"><span class="section-number-3">3.2</span> Converting a variable from numeric to character respecting the format</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-Following is an example of how to create a character variable from a
-numeric variable which has a format. The aim is to retrieve the
-formatted value as a character string. The example uses the VVALUE
-function. The VALUE function writes the formatted value of a variable
-as a character string.
-</p>
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">proc format</span> library=work;
-    <span style="color: #a020f0;">value</span> president_
-        0  = <span style="color: #8b2252;">'Washington'</span>
-        16 = <span style="color: #8b2252;">'Lincoln'</span>
-        44 = <span style="color: #8b2252;">'Obama'</span>;
-<span style="color: #008b8b;">quit;</span>
-<span style="color: #008b8b;">data</span> presidents_numeric;
-    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name;
-    <span style="color: #008b8b;">datalines;</span>
-    1 0
-    2 16
-    3 44
-    ;
-<span style="color: #008b8b;">run;</span>
-<span style="color: #008b8b;">data</span> presidents_formatted;
-    <span style="color: #a020f0;">set</span> presidents_numeric;
-    <span style="color: #a020f0;">attrib</span> name <span style="color: #a020f0;">format</span> = president_.;
-<span style="color: #008b8b;">run;</span>
-<span style="color: #008b8b;">data</span> presidents_character;
-    <span style="color: #a020f0;">set</span> presidents_formatted;
-    president_char = VVALUE(name);
-<span style="color: #008b8b;">run;</span> 
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orga44331e" class="outline-3">
-<h3 id="orga44331e"><span class="section-number-3">3.3</span> Converting a variable from character to numeric</h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-Following is an example of how to create a numeric variable from a
-character variable. The example uses the INPUT function. The INPUT
-function can convert values by using a specified informat. The
-informat determines whether the result is numeric or character. It
-takes two arguments: the name of the variable, and a SAS informat for
-reading the data. The difference with the PUT function is that INPUT
-uses an informat instead of a format.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sas"> <span style="color: #008b8b;">data</span> presidents;
-    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name $ phone_number $12.;
-    <span style="color: #008b8b;">datalines;</span>
-    1 Washington 0
-    19 Hayes 1
-    44 Obama 2024561111
-    ;
-<span style="color: #008b8b;">run;</span>
-<span style="color: #008b8b;">data</span> numeric;
-    <span style="color: #a020f0;">set</span> presidents;
-    phone_num = <span style="color: #0000ff;">INPUT(</span>phone_number, 12.);
-<span style="color: #008b8b;">run;</span> 
-</pre>
-</div>
-</div>
-</div>
-
-
-
-
-<div id="outline-container-orgd36e024" class="outline-3">
-<h3 id="orgd36e024"><span class="section-number-3">3.4</span> Extracting the last character from a string</h3>
-<div class="outline-text-3" id="text-3-4">
-<p>
-The following example shows how to extract the last character from a character string variable. The example uses the REVERSE and the SUBSTR functions. The REVERSE function returns a character string backward. The last character in the argument becomes the first character in the result, the next-to-last character in the argument becomes the second character in the result, and so on. The SUBSTR function returns a substring of the first argument. The second argument is the position of the first character of the substring to extract. The optional third argument specifies the length of the substring. If no length is specified SAS will read on until the end of the string.
-</p>
-<div class="org-src-container">
-<pre class="src src-sas"> <span style="color: #008b8b;">data</span> presidents;
-    <span style="color: #a020f0;">input</span> <span style="color: #a020f0;">id</span> name $ telephone $12.;
-    <span style="color: #008b8b;">datalines;</span>
-    1  Washington 0
-    19 Hayes 1
-    44 Obama 202-456-1111
-    ;
-<span style="color: #008b8b;">run;</span>
-
-<span style="color: #008b8b;">data</span> annotate;
-    <span style="color: #a020f0;">set</span> presidents;
-    char_rev = <span style="color: #0000ff;">REVERSE(</span>telephone);
-    char_last = <span style="color: #0000ff;">SUBSTR(COMPRESS(</span>char_rev), 1, 1);
-    <span style="color: #a020f0;">IF</span> char_last=1 <span style="color: #a020f0;">THEN</span> note = <span style="color: #8b2252;">'President with phone number ending in 1'</span>;
-    <span style="color: #008b8b;">run;</span>  
-</pre>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org1b500cb" class="outline-3">
-<h3 id="org1b500cb"><span class="section-number-3">3.5</span> Removing blanks from a string</h3>
-<div class="outline-text-3" id="text-3-5">
-</div>
-<div id="outline-container-org6a7b62b" class="outline-4">
-<h4 id="org6a7b62b"><span class="section-number-4">3.5.1</span> Leading and trailing blanks</h4>
-<div class="outline-text-4" id="text-3-5-1">
-<p>
-The SAS function STRIP returns a character string with all leading and trailing blanks removed. To demonstrate this functionality, the number of spaces at the beginning of the lines after the datalines statement was chosen deliberately; make sure to keep them intact when copy/pasting the code.
-</p>
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">data</span> lengthn;
-    <span style="color: #a020f0;">input</span> string $char8.;
-    original = <span style="color: #8b2252;">'*'</span> || string || <span style="color: #8b2252;">'*'</span>;
-    stripped = <span style="color: #8b2252;">'*'</span> || strip(string) || <span style="color: #8b2252;">'*'</span>;
-    <span style="color: #008b8b;">datalines;</span>
-abcd
-  abcd
-    abcd
-abcdefgh
- x y z
-;
-<span style="color: #008b8b;">run;</span>        
-</pre>
-</div>
-<p>
-The SAS <code>CATS</code> function returns a concatenated character string with leading and trailing blanks removed. The <code>CATS</code> function is equivalent to first using <code>LEFT</code> and then passing the result to the <code>TRIM</code> function.
-</p>
-</div>
-</div>
-<div id="outline-container-org542c508" class="outline-4">
-<h4 id="org542c508"><span class="section-number-4">3.5.2</span> Removing line breaks from a string</h4>
-<div class="outline-text-4" id="text-3-5-2">
-<p>
-The SAS <code>TRANSLATE</code> function replaces characters in a string. For
-example, <code>var = translate(var,' ','0A'x);</code> replaces line feeds by
-spaces.  Note that the `to' argument comes before the `from'
-argument.  If you want to <code>TRANSLATE</code> multiple characters, you
-should specify pairs of to and from arguments (although this is not
-required in some operating systems), using a comma as a
-placeholder. 
-</p>
-
-<p>
-The SAS function <code>COMPRESS</code> removes characters from a string. For
-examle, <code>compress(source_text, '0D'x);</code> removes Carriage Returns
-from a character variable.
-</p>
-
-<p>
-See section <a href="#org41b2091">ASCII control characters</a> for a table with the most
-important characters.
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgca1595d" class="outline-3">
-<h3 id="orgca1595d"><span class="section-number-3">3.6</span> Location of the SAS temporary work directory</h3>
-<div class="outline-text-3" id="text-3-6">
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">%put</span> <span style="color: #0000ff;">%sysfunc(getoption(</span>work)); 
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd0b4c0b" class="outline-3">
-<h3 id="orgd0b4c0b"><span class="section-number-3">3.7</span> List of SAS member types</h3>
-<div class="outline-text-3" id="text-3-7">
-<p>
-SAS files in a directory are called members of a library. Each member
-has a <a href="https://v8doc.sas.com/sashtml/win/z1iles.htm#zension">member type</a>.
-</p>
-</div>
-</div>
-<div id="outline-container-org4c31fba" class="outline-3">
-<h3 id="org4c31fba"><span class="section-number-3">3.8</span> Dictionary</h3>
-<div class="outline-text-3" id="text-3-8">
-<p title="Patrick Thornton's overview of dictionary tables and SASHELP views ;">
-See <a href="http://support.sas.com/resources/papers/proceedings11/264-2011.pdf" title="Patrick Thornton's overview of dictionary tables and SASHELP views ;">Patrick Thornton's overview of dictionary tables and SASHELP views</a>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org906c7f6" class="outline-3">
-<h3 id="org906c7f6"><span class="section-number-3">3.9</span> Reading data from CSV files</h3>
-<div class="outline-text-3" id="text-3-9">
-</div>
-<div id="outline-container-org1c5b7a4" class="outline-4">
-<h4 id="org1c5b7a4"><span class="section-number-4">3.9.1</span> Line feeds within strings</h4>
-<div class="outline-text-4" id="text-3-9-1">
-<p>
-The SAS code below will change your file on disk using the sharebuffers option, so make sure you keep a backup of your file.
-</p>
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">%let</span> repA=<span style="color: #8b2252;">' '</span>; <span style="color: #b22222;">/*</span><span style="color: #b22222;"> replacement character for LF </span><span style="color: #b22222;">*/</span>
-<span style="color: #008b8b;">%let</span> repD=<span style="color: #8b2252;">' '</span>; <span style="color: #b22222;">/*</span><span style="color: #b22222;"> replacement character for CR </span><span style="color: #b22222;">*/</span>
-
-<span style="color: #b22222;">/*</span><span style="color: #b22222;"> name of the CSV file including the full path </span><span style="color: #b22222;">*/</span>
-<span style="color: #008b8b;">%let</span> dsnnme=<span style="color: #8b2252;">"~/Patients2.csv"</span>;
-
-<span style="color: #008b8b;">data</span> _null_;
-
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> RECFM=N reads the file in binary format. The file consists of a </span><span style="color: #b22222;">*/</span>
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> stream of bytes with no record boundaries.</span>
-<span style="color: #b22222;">  /* SHAREBUFFERS specifies that the FILE statement and the INFILE   </span><span style="color: #b22222;">*/</span>
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> statement share the same buffer. </span><span style="color: #b22222;">*/</span>
-  <span style="color: #a020f0;">infile</span> &amp;dsnnme recfm=n sharebuffers;
-  <span style="color: #a020f0;">file</span> &amp;dsnnme recfm=n;
-
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> OPEN is a flag variable used to determine if the CR/LF is </span><span style="color: #b22222;">*/</span>
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> within  double quotes or not. Retain this value.          </span><span style="color: #b22222;">*/</span>
-  <span style="color: #a020f0;">retain</span> open 0;
-
-  <span style="color: #a020f0;">input</span> a $char1.;
-
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> If the character is a double quote, set OPEN to its opposite</span>
-<span style="color: #b22222;">  value. </span><span style="color: #b22222;">*/</span>
-
-  <span style="color: #a020f0;">if</span> a = <span style="color: #8b2252;">'"'</span> <span style="color: #a020f0;">then</span> open = ^(open);
-
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> If the CR or LF is after an open double quote, replace the byte with </span><span style="color: #b22222;">*/</span>
-  <span style="color: #b22222;">/*</span><span style="color: #b22222;"> the appropriate value.                                               </span><span style="color: #b22222;">*/</span>
-  <span style="color: #a020f0;">if</span> open <span style="color: #a020f0;">then</span> <span style="color: #a020f0;">do</span>;
-  <span style="color: #a020f0;">if</span> a = <span style="color: #8b2252;">'0D'</span>x <span style="color: #a020f0;">then</span> <span style="color: #a020f0;">put</span> &amp;repD;
-  <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> a = <span style="color: #8b2252;">'0A'</span>x <span style="color: #a020f0;">then</span> <span style="color: #a020f0;">put</span> &amp;repA;
-  <span style="color: #a020f0;">end;</span>
-<span style="color: #008b8b;">run;</span>
-
-<span style="color: #b22222;">/*</span><span style="color: #b22222;"> use termstr to specify the line-ending style if necessary </span><span style="color: #b22222;">*/</span>
-<span style="color: #a020f0;">filename</span> infle <span style="color: #8b2252;">'~/Patients2.csv'</span> <span style="color: #b22222;">/*</span><span style="color: #b22222;">termstr=CRLF</span><span style="color: #b22222;">*/</span>;
-
-<span style="color: #008b8b;">PROC IMPORT</span> <span style="color: #a020f0;">OUT=</span>WORK.patientES DATAFILE=infle
-    DBMS=DLM REPLACE ;
-    DELIMITER=<span style="color: #8b2252;">'3B'</span>x;
-    GETNAMES=YES;
-    DATAROW=2;
-    GUESSINGROWS=2000;
-        <span style="color: #008b8b;">RUN;</span> 
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-org5855d03" class="outline-4">
-<h4 id="org5855d03"><span class="section-number-4">3.9.2</span> Reading data from difficult txt files</h4>
-<div class="outline-text-4" id="text-3-9-2">
-<p>
-It may be difficult to import a text files into SAS if it contains a character string variable with spaces and the length is not known in advance. An exampe is the file <code>icd10cm_codes_2018.txt</code>, which can be downloaded from Centers for Medicare &amp; Medicaid Services.
-</p>
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">data</span> icd10book;
-    <span style="color: #a020f0;">infile</span> <span style="color: #8b2252;">"&amp;projectdir/data/import/icd10/icd10cm_codes_2018.txt"</span>;
-    <span style="color: #a020f0;">input</span> icd10_code $  icd10_desc &amp; $196.;
-<span style="color: #008b8b;">run;</span> 
-</pre>
-</div>
-<p>
-The &amp; (ampersand) format modifier enables you to read character values that contain embedded blanks with list input and to specify a character informat. SAS reads until it encounters multiple blanks. See also chapter SAS INPUT Statement from the SAS Language Reference.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org12cbeca" class="outline-4">
-<h4 id="org12cbeca"><span class="section-number-4">3.9.3</span> Writing a dataset to a plain text file</h4>
-<div class="outline-text-4" id="text-3-9-3">
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">proc export</span> <span style="color: #a020f0;">data=</span>mydataset outfile=<span style="color: #8b2252;">'C:\mydataset.txt'</span> dbms=tab replace;
-    putnames=yes;
-<span style="color: #008b8b;">quit;</span> 
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orga791774" class="outline-4">
-<h4 id="orga791774"><span class="section-number-4">3.9.4</span> Writing data to results viewer</h4>
-<div class="outline-text-4" id="text-3-9-4">
-<div class="org-src-container">
-<pre class="src src-sas"><span style="color: #008b8b;">data</span> _null_;
-   <span style="color: #a020f0;">set</span> presidents;
-   <span style="color: #a020f0;">file</span> print header=newpage;
-   <span style="color: #a020f0;">put</span> <span style="color: #a020f0;">id</span> @7 name @18 telephone; 
-   <span style="color: #a020f0;">return;</span>
-   newpage:
-      <span style="color: #a020f0;">put</span> <span style="color: #8b2252;">'patnr'</span> @7 <span style="color: #8b2252;">'name'</span> @ 18 <span style="color: #8b2252;">'telephone'</span>;
-      <span style="color: #a020f0;">put</span> 29*<span style="color: #8b2252;">'='</span>;
-      <span style="color: #a020f0;">return;</span>
-<span style="color: #008b8b;">run;</span> 
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc98d4ce" class="outline-2">
-<h2 id="orgc98d4ce"><span class="section-number-2">4</span> Regular Expressions</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-See <a href="https://www.regular-expressions.info/refquick.html">Jan Goyvaerts' Quick Reference</a> for a longer list.
-</p>
-
-<p>
-Remember the difference between <a href="https://www.regular-expressions.info/repeat.html">greedy and lazy</a> matching.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Syntax</th>
-<th scope="col" class="org-left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><code>\\d</code></td>
-<td class="org-left">Digit, 0,1,2 &#x2026; 9</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\D</code></td>
-<td class="org-left">Not Digit</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\s</code></td>
-<td class="org-left">Space</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\S</code></td>
-<td class="org-left">Not Space</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\w</code></td>
-<td class="org-left">Word</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\W</code></td>
-<td class="org-left">Not Word</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\t</code></td>
-<td class="org-left">Tab</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\\n</code></td>
-<td class="org-left">New line</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>^</code></td>
-<td class="org-left">Beginning of the string</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>$</code></td>
-<td class="org-left">End of the string</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>\</code></td>
-<td class="org-left">Escape special characters, for example <code>\\</code> is "<code>\</code>", <code>\+</code> is "<code>+</code>"</td>
-</tr>
-
-<tr>
-<td class="org-left">&vert;</td>
-<td class="org-left">Alternation match, for example <code>/(e\vert{}d)n/</code> matches <code>en</code> and <code>dn</code></td>
-</tr>
-
-<tr>
-<td class="org-left"><code>.</code></td>
-<td class="org-left">Any character, except <code>\n</code> or line terminator</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[ab]</code></td>
-<td class="org-left">a or b</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[^ab]</code></td>
-<td class="org-left">Any character except a and b</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[0-9]</code></td>
-<td class="org-left">All Digit</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[A-Z]</code></td>
-<td class="org-left">All uppercase A to Z letters</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[a-z]</code></td>
-<td class="org-left">All lowercase a to z letters</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[A-z]</code></td>
-<td class="org-left">All Uppercase and lowercase a to z letters</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i+</code></td>
-<td class="org-left">i at least one time</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i*</code></td>
-<td class="org-left">i zero or more times</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i?</code></td>
-<td class="org-left">i zero or 1 time</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i{n}</code></td>
-<td class="org-left">i occurs n times in sequence</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i{n1,n2}</code></td>
-<td class="org-left">i occurs n1 - n2 times in sequence</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i{n1,n2}?</code></td>
-<td class="org-left">non greedy match, see above example</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>i{n,}</code></td>
-<td class="org-left">i occures &gt;= n times</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:alnum:]</code></td>
-<td class="org-left">Alphanumeric characters: [:alpha:] and [:digit:]</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:alpha:]</code></td>
-<td class="org-left">Alphabetic characters: [:lower:] and [:upper:]</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:blank:]</code></td>
-<td class="org-left">Blank characters: for example space, tab</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:cntrl:]</code></td>
-<td class="org-left">Control characters</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:digit:]</code></td>
-<td class="org-left">Digits: 0 1 2 3 4 5 6 7 8 9</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:graph:]</code></td>
-<td class="org-left">Graphical characters: [:alnum:] and [:punct:]</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:lower:]</code></td>
-<td class="org-left">Lower-case letters in the current locale</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:print:]</code></td>
-<td class="org-left">Printable characters: [:alnum:], [:punct:] and space</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:punct:]</code></td>
-<td class="org-left">Punctuation character: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { = &vert; } ~</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:space:]</code></td>
-<td class="org-left">Space characters: tab, newline, vertical tab, form feed, carriage return, space</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:upper:]</code></td>
-<td class="org-left">Upper-case letters in the current locale</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>[:xdigit:]</code></td>
-<td class="org-left">Hexadecimal digits: 0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-orgd44cf8d" class="outline-2">
-<h2 id="orgd44cf8d"><span class="section-number-2">5</span> MS Word</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-org0857117" class="outline-3">
-<h3 id="org0857117"><span class="section-number-3">5.1</span> Minus sign</h3>
-<div class="outline-text-3" id="text-5-1">
-<p>
-A minus sign may not be separated from following numeric characters or following opening characters, even if a space character intervenes.
-</p>
-
-<p>
-Go to 'insert' &rarr; 'symbol' &rarr; 'more
-symbols'. This opens a window. Choose the correct font. You can
-then choose the right symbol from the map, but it is hard to see
-the differences between various types of hyphens and the minus
-sign. So instead go to the field 'character code' abd can enter the
-code
-</p>
-
-<p>
-Line breaking properties for some Unicode dashes and hyphens are
-listed on <a href="http://jkorpela.fi/dashes.html">Jukka `Yucca' Korpela's page on Dashes and hyphens</a>.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org673a5e9" class="outline-2">
-<h2 id="org673a5e9"><span class="section-number-2">6</span> Configuring Notepad++ to run PDFLaTeX</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-In order to setup a Run command in Notepad++, simply press F5 (or
-select Run &rarr; Run&#x2026;). A box like one below should appear.
-</p>
-
-
-<div id="org768ade1" class="figure">
-<p><img src="./img/run-blank.png" alt="run-blank.png" />
-</p>
-</div>
-
-
-<p>
-In order to configure PDFLaTeX, simply enter the command
-<code>cmd /c cd /d "$(CURRENT_DIRECTORY)" &amp;&amp; pdflatex.exe -shell-escape "$(FILE_NAME)"</code>
-</p>
-
-<p>
-and select "Save" (like in the box below).
-</p>
-
-<div id="org2253d01" class="figure">
-<p><img src="./img/run-command.png" alt="run-command.png" />
-</p>
-</div>
-
-<p>
-Then enter PDFLaTeX for the Name, and then select a hotkey (or
-shortcut) to run PDFLaTeX. The box below illustrates this using ALT+F1
-as the hotkey.
-</p>
-
-
-<div id="orgf61a42d" class="figure">
-<p><img src="./img/save.png" alt="save.png" />
-</p>
-</div>
-
-
-<p>
-After selecting "OK" and "Cancel"ing the previous box, PDFLaTeX can be
-executed on the opened LaTeX file simply by pressing the ALT+F1 key
-combination. Below is a table illustrating several suggested commands
-as well as potential hotkey combinations.
-</p>
-
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Program/Command</th>
-<th scope="col" class="org-left">Name</th>
-<th scope="col" class="org-left">Hotkey</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><code>cmd /c cd /d "$(CURRENT_DIRECTORY)" &amp;&amp; pdflatex.exe -shell-escape "$(FILE_NAME)"</code></td>
-<td class="org-left">PDFLaTeX</td>
-<td class="org-left">ALT+F1</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>"C:\Program Files\SumatraPDF\SumatraPDF.exe" "$(CURRENT_DIRECTORY)\$(NAME_PART).pdf"</code></td>
-<td class="org-left">SumatraPDF</td>
-<td class="org-left">ALT+F2</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>acrord32 "$(CURRENT_DIRECTORY)\$(NAME_PART).pdf"</code></td>
-<td class="org-left">Acrobat Reader</td>
-<td class="org-left">ALT+F3</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>"C:\Program Files\Octave\tools\console\console.exe" -d "$(CURRENT_DIRECTORY)"</code></td>
-<td class="org-left">Octave</td>
-<td class="org-left">ALT+F5</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: Erik van Werkhoven</p>
-<p class="date">Created: 2020-02-04 Tue 15:54</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
-</div>
-</body>
-</html>
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
